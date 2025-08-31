@@ -1,0 +1,20 @@
+:root {
+    /* Colores */
+    --azul-oscuro-fondo: #1e1e24;
+    --azul-medio: #282830;
+    --azul-claro:#41414C;
+    --rojo-vibrante: #ff6464;
+    /* Fuentes */
+    --parrafos: "Nixie One", system-ui;
+    --titulos: "PT Sans Narrow", sans-serif;
+    --banner-principal: "Caveat", cursive;
+    --banner-secundario: "Bangers", system-ui;
+    --precios:"Rammetto One", sans-serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
