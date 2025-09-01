@@ -1,0 +1,69 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 60%;
+}
+
+.contenedor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-inline: 90px;
+  padding-block: 20px;
+  border-radius: 20px;
+  width: fit-content;
+  opacity: 100%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.imagen{
+    width:400px;
+    height:400px;
+}
+.spinner{
+  position: relative;
+  width: 400px; /* tamaño del círculo */
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 10px solid #cccccc7d;
+  border-top-color: #e0b02a; 
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  .contenedor {
+    padding-inline: 30px;
+    border-radius: 15px;
+  }
+  .spinner,
+  .imagen {
+    width:200px;
+    height:200px;
+  }
+
+}
