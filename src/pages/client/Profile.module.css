@@ -241,7 +241,7 @@ input[type="number"] {
   z-index: 10;
 }
 .ocultar{
-  display: none;
+  display: none !important;
 }
 .mostrar{
   display: block;
