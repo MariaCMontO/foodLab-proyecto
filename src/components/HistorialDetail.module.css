@@ -1,0 +1,66 @@
+.contenedor{
+    height: fit-content;
+    background-color: var(--azul-medio);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.contenedorRow{
+    display: flex;
+    justify-content: left;
+    gap: 5px;
+}
+
+.contenedorProductos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.parrafos{
+    font-family: var(--parrafos);
+    font-size: 14px;
+}
+
+.contenedorTotal{
+    display: flex;
+    justify-content: space-between;
+}
+.parrafosRojos{
+    font-family: var(--parrafos);
+    color: var(--rojo-vibrante);
+    font-size: 14px;
+}
+
+.contenedorFinal{
+    border: 1px solid rgba(255, 255, 255, 0.537);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.select{
+    width: 100%;
+    text-align: center;
+    text-align-last: center; 
+    padding: 3px;
+    background-color: var(--rojo-vibrante);
+    border: none;
+    font-family: var(--titulos);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.option{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--titulos);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: none;
+}

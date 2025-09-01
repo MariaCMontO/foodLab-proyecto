@@ -1,0 +1,67 @@
+.contenedorPrincipal {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.contenedor {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 83px;
+  padding: 18px;
+  gap: 10px;
+  border-radius: 20px;
+  background-color: var(--azul-medio);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.registro {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  gap: 10px;
+  border-radius: 20px;
+  background-color:transparent;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.444);
+}
+
+.activo {
+  border: 2px solid var(--rojo-vibrante);
+  border-radius: 20px;
+}
+.registro:hover,
+.contenedor:hover {
+  border: 2px solid var(--rojo-vibrante);
+}
+
+.imagen {
+  width: 45px;
+  height: 45px;
+}
+
+.imagenRegistro {
+  width: 25px;
+  height: 25px;
+}
+
+.texto {
+  color: white;
+  font-family: var(--parrafos);
+  font-size: 20px;
+}
+
+.textoRegistro {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .texto {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,131 @@
+.cuadroPrincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: var(--azul-oscuro-fondo);
+}
+
+.cuadroSecundario {
+  background-color: var(--azul-medio);
+  padding-inline: 30px;
+  padding-block: 15px;
+  border-radius: 40px;
+  max-width: 717px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.Logo {
+  display: block;
+  width: 234px;
+}
+.contenedorSummary{
+  width: 100%;
+}
+.titulo {
+  text-align: center;
+  font-family: var(--titulos);
+  font-weight: bold;
+  font-size: 33px;
+  color: white;
+}
+
+.primerCuadro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  height: 100%; /* ocupa todo el espacio disponible del contenedor */
+  max-height: calc(210px); /* ajusta el 200px según tu header/logo */
+  overflow-y: auto; /* activa scroll vertical */
+  padding-right: 8px; /* espacio para que no tape el scroll */
+}
+
+.texto {
+  width: 300px;
+  text-align: left;
+  font-size: 16px;
+  color: white;
+  font-family: var(--parrafos);
+}
+
+.cuartoCuadro {
+  width: 100%;
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  justify-content: space-between;
+  border: #cccccc5d solid 2px;
+  padding-inline: 30px;
+  padding-block: 10px;
+  border-radius: 12px;
+  gap: 20px;
+}
+.quintoCuadro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Alinea verticalmente */
+  gap: 16px; /* Espacio entre elementos */
+  border: #cccccc5d solid 2px;
+  padding-inline: 30px;
+  padding-block: 10px;
+  border-radius: 12px;
+}
+.contenedor{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.input{
+  width: 100%;
+  padding: 7px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 78px;
+  background-color: white;
+  color: black;
+  font-family: var(--parrafos)
+}
+
+.boton {
+  width: 100%;
+  font-weight: bold;
+  background-color: var(--rojo-vibrante);
+  color: white;
+  font-family: var(--titulos);
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.boton:hover {
+  background-color: #fc4444;
+}
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .texto{
+    font-size: 14px;
+    width: 150px;
+  }
+  .quintoCuadro,
+  .cuartoCuadro{
+    padding-inline:15px ;
+  }
+}

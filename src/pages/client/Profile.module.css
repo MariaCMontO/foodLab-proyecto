@@ -1,0 +1,309 @@
+.contenedor {
+  background-color: var(--azul-medio);
+  display: flex;
+  gap: 38px;
+  padding: 10px;
+  align-items: center;
+}
+
+.contenedorPrincipal {
+  background-color: var(--azul-oscuro-fondo);
+  border-radius: 40px;
+  padding-block: 15px;
+  padding-inline: 25px;
+  height: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu {
+  display: none;
+}
+
+.logo {
+  width: 310px;
+  height: 70px;
+}
+
+.contenedorMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.informacion {
+  border: 1px solid white;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 86px;
+  padding-block: 10px;
+  align-items: center;
+}
+
+.profile {
+  border-radius: 100%;
+  width: 090px;
+  height: 90px;
+}
+
+.texto {
+  font-family: var(--titulos);
+  color: white;
+  font-size: 22px;
+  text-align: start;
+}
+
+.contenedorTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contenedorRow {
+  display: flex;
+  gap: 70px;
+}
+
+.titulo {
+  font-family: var(--titulos);
+  color: white;
+  font-size: 16px;
+  text-align: start;
+  font-weight: bold;
+}
+.contenido {
+  font-family: var(--titulos);
+  color: white;
+  font-size: 16px;
+  text-align: start;
+}
+
+.editar {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.editarIcon {
+  width: 35px;
+  height: 35px;
+}
+.gustos {
+  border: 1px solid white;
+  border-radius: 30px;
+  padding-inline: 40px;
+  padding-block: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 63px;
+}
+
+textarea {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 70px;
+  width: 100%;
+  color: white;
+  font-family: var(--titulos);
+  padding: 10px;
+}
+input:focus,
+textarea:focus {
+  border: none;
+  outline: 1px solid var(--rojo-vibrante);
+}
+
+.preferencias {
+  display: flex;
+  flex: 75%;
+  flex-direction: column;
+  align-items: start;
+  gap: 22px;
+}
+.tituloGrande {
+  width: 210px;
+  font-family: var(--titulos);
+  color: white;
+  font-size: 18px;
+  text-align: start;
+  font-weight: bold;
+}
+.parrafo {
+  font-size: 22px;
+  font-weight: bold;
+}
+.campo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.categorias {
+  flex: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pago {
+  border: 1px solid white;
+  border-radius: 30px;
+  justify-content: space-between;
+  padding-inline: 40px;
+  padding-block: 20px;
+  display: flex;
+  gap: 20px;
+}
+.info {
+  display: flex;
+  flex: 50%;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+/* Para Chrome, Safari, Edge y Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.contenedorInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.inputMetodo {
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  font-family: var(--titulos);
+  height: 50px;
+}
+.inputNumero {
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  font-family: var(--titulos);
+  height: 25px;
+}
+.boton {
+  width: fit-content;
+  background-color: var(--rojo-vibrante);
+  color: white;
+  font-family: var(--titulos);
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding-block: 5px;
+  padding-inline: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.boton:hover {
+  background-color: #fc4444;
+}
+.botonLink {
+  align-self: end;
+}
+.botones{
+  display: flex;
+  justify-content: space-between;
+}
+.overlay {
+  background-color: black;
+  opacity: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.ocultar{
+  display: none !important;
+}
+.mostrar{
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    gap: 0;
+  }
+  .nav {
+    position: absolute;
+    z-index: 10;
+    background-color: var(--azul-medio);
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 100px;
+    padding-right: 20px;
+  }
+  .contenedorPrincipal {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .menu {
+    display: block;
+    width: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .logo {
+    width: 240px;
+    height: 56px;
+  }
+  .informacion {
+    align-items: start;
+    gap: 10px;
+    padding-inline: 10px;
+  }
+
+  .contenedorRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .profile {
+    width: 70px;
+    height: 70px;
+  }
+  .editarIcon {
+    width: 25px;
+    height: 25px;
+  }
+  .pago,
+  .gustos {
+    flex-direction: column;
+  }
+  .visible {
+    transform: translateX(0);
+  }
+
+  .hidden {
+    transform: translateX(-100%);
+  }
+}
