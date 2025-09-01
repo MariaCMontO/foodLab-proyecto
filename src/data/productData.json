@@ -1,0 +1,210 @@
+[
+  {
+    "id": 1,
+    "categoria": "Hamburguesas",
+    "nombre": "Big Melt Supreme",
+    "descripcion": "Carne jugosa, huevo frito, tocino crujiente y queso cheddar derretido.",
+    "precio": 30000,
+    "imagen": "/hamburguesas_01.jpg"
+  },
+  {
+    "id": 2,
+    "categoria": "Hamburguesas",
+    "nombre": "Crispy Rancher",
+    "descripcion": "Pechuga empanizada, queso cheddar, tomate y lechuga fresca.",
+    "precio": 28500,
+    "imagen": "/hamburguesas_02.jpg"
+  },
+  {
+    "id": 3,
+    "categoria": "Hamburguesas",
+    "nombre": "BBQ Sunset",
+    "descripcion": "Hamburguesa de pollo a la parrilla con queso suizo y mermelada de tocineta al BBQ.",
+    "precio": 30000,
+    "imagen": "/hamburguesas_03.jpg"
+  },
+  {
+    "id": 4,
+    "categoria": "Hamburguesas",
+    "nombre": "Green Garden Burger",
+    "descripcion": "Carne premium con vegetales frescos y toque de queso suave.",
+    "precio": 31000,
+    "imagen": "/hamburguesas_04.jpg"
+  },
+  {
+    "id": 5,
+    "categoria": "Hamburguesas",
+    "nombre": "Cheese Lava Burger",
+    "descripcion": "Carne jugosa bañada en queso derretido y vegetales frescos.",
+    "precio": 32000,
+    "imagen": "/hamburguesas_05.jpg"
+  },
+  {
+    "id": 6,
+    "categoria": "Hamburguesas",
+    "nombre": "Double Cheddar Blast",
+    "descripcion": "Doble carne, doble queso cheddar y vegetales crujientes.",
+    "precio": 30000,
+    "imagen": "/hamburguesas_06.jpg"
+  },
+  {
+    "id": 7,
+    "categoria": "Hamburguesas",
+    "nombre": "Texas BBQ",
+    "descripcion": "Pan brioche, carne de res, queso cheddar, cebolla caramelizada, tocineta y salsa BBQ.",
+    "precio": 27000,
+    "imagen": "/hamburguesas_07.jpg"
+  },
+  {
+    "id": 8,
+    "categoria": "Hamburguesas",
+    "nombre": "Mediterránea Burger",
+    "descripcion": "Pan rústico, carne de res, queso feta, tomate seco, rúgula y mayonesa de ajo.",
+    "precio": 30000,
+    "imagen": "/hamburguesas_08.jpg"
+  },
+  {
+    "id": 9,
+    "categoria": "Hamburguesas",
+    "nombre": "Volcán de Queso",
+    "descripcion": "Pan artesanal, doble carne de res, mezcla de quesos fundidos, pepinillos y salsa especial.",
+    "precio": 28500,
+    "imagen": "/hamburguesas_09.jpg"
+  },
+  {
+    "id": 10,
+    "categoria": "Perros",
+    "nombre": "Urban Dog",
+    "descripcion": "Pan artesanal, salchicha americana, cebolla caramelizada, salsa tártara, mostaza Dijon y perejil fresco.",
+    "precio": 22000,
+    "imagen": "/perros_01.jpg"
+  },
+  {
+    "id": 11,
+    "categoria": "Perros",
+    "nombre": "Tex-Mex Bite",
+    "descripcion": "Salchicha parrillera, guacamole cremoso, jalapeños frescos, pico de gallo y salsa cheddar.",
+    "precio": 23500,
+    "imagen": "/perros_02.jpg"
+  },
+  {
+    "id": 12,
+    "categoria": "Perros",
+    "nombre": "Crispy Onion Dog",
+    "descripcion": "Salchicha ahumada, mayonesa de ajo, cebolla crujiente frita, lechuga fresca y salsa BBQ ligera.",
+    "precio": 24000,
+    "imagen": "/perros_03.jpg"
+  },
+  {
+    "id": 13,
+    "categoria": "Perros",
+    "nombre": "BBQ Smash Dog",
+    "descripcion": "Salchicha tipo Frankfurt, panceta ahumada, queso cheddar fundido, cebolla morada y abundante salsa BBQ.",
+    "precio": 23000,
+    "imagen": "/perros_04.jpg"
+  },
+  {
+    "id": 14,
+    "categoria": "Perros",
+    "nombre": "Cheesy Lover Dog",
+    "descripcion": "Salchicha alemana, doble queso fundido (cheddar y mozzarella), salsa de queso, paprika y cebollín.",
+    "precio": 23500,
+    "imagen": "/perros_05.jpg"
+  },
+  {
+    "id": 15,
+    "categoria": "Perros",
+    "nombre": "Sweet & Spicy Dog",
+    "descripcion": "Salchicha parrillera, miel natural, mostaza picante, pepinillos encurtidos y cebolla morada.",
+    "precio": 24000,
+    "imagen": "/perros_06.jpg"
+  },
+  {
+    "id": 16,
+    "categoria": "Pizzas",
+    "nombre": "Mediterránea",
+    "descripcion": "Tomate, mozzarella, aceitunas negras, pimientos, alcachofas y orégano.",
+    "precio": 25000,
+    "imagen": "/pizzas_01.jpg"
+  },
+  {
+    "id": 17,
+    "categoria": "Pizzas",
+    "nombre": "Campesina",
+    "descripcion": "Salsa de tomate, queso mozzarella, maíz tierno, champiñones, tocineta y cebolla morada.",
+    "precio": 24500,
+    "imagen": "/pizzas_02.jpg"
+  },
+  {
+    "id": 18,
+    "categoria": "Pizzas",
+    "nombre": "Cuatro Quesos",
+    "descripcion": "Mozzarella, gorgonzola, parmesano y queso crema.",
+    "precio": 24500,
+    "imagen": "/pizzas_03.jpg"
+  },
+  {
+    "id": 19,
+    "categoria": "Pizzas",
+    "nombre": "Boscaiola",
+    "descripcion": "Tomate, mozzarella, champiñones, salchicha italiana y cebolla caramelizada.",
+    "precio": 26000,
+    "imagen": "/pizzas_04.jpg"
+  },
+  {
+    "id": 20,
+    "categoria": "Pizzas",
+    "nombre": "Ibérica",
+    "descripcion": "Tomate, mozzarella, jamón serrano, rúgula y lascas de parmesano.",
+    "precio": 25500,
+    "imagen": "/pizzas_05.jpg"
+  },
+  {
+    "id": 21,
+    "categoria": "Pizzas",
+    "nombre": "Rústica",
+    "descripcion": "Salsa de tomate, mozzarella, chorizo español, pimientos rojos y aceitunas verdes.",
+    "precio": 23000,
+    "imagen": "/pizzas_06.jpg"
+  },
+  {
+    "id": 22,
+    "categoria": "Pizzas",
+    "nombre": "Carbonara",
+    "descripcion": "Salsa blanca, mozzarella, tocineta, cebolla y huevo.",
+    "precio": 23000,
+    "imagen": "/pizzas_07.jpg"
+  },
+  {
+    "id": 23,
+    "categoria": "Pizzas",
+    "nombre": "Suprema",
+    "descripcion": "Tomate, mozzarella, pepperoni, champiñones, pimientos y aceitunas negras.",
+    "precio": 25000,
+    "imagen": "/pizzas_08.jpg"
+  },
+  {
+    "id": 24,
+    "categoria": "Pizzas",
+    "nombre": "Hawaiana Salada",
+    "descripcion": "Tomate, mozzarella, jamón ahumado y piña asada sin azúcar.",
+    "precio": 24000,
+    "imagen": "/pizzas_09.jpg"
+  },
+  {
+    "id": 25,
+    "categoria": "Pizzas",
+    "nombre": "Napolitana",
+    "descripcion": "Tomate, mozzarella, anchoas, aceitunas negras y alcaparras.",
+    "precio": 23500,
+    "imagen": "/pizzas_10.jpg"
+  },
+  {
+    "id": 26,
+    "categoria": "Pizzas",
+    "nombre": "Provenzal",
+    "descripcion": "Tomate, mozzarella, calabacín, berenjena, ajo asado y orégano fresco.",
+    "precio": 22500,
+    "imagen": "/pizzas_11.jpg"
+  }
+]
