@@ -1,0 +1,297 @@
+:root {
+    /* Colores */
+    --azul-oscuro-fondo: #1e1e24;
+    --azul-medio: #282830;
+    --rojo-vibrante: #ff6464;
+    /* Fuentes */
+    --parrafos: "Nixie One", system-ui;
+    --titulos: "PT Sans Narrow", sans-serif;
+    --banner-principal: "Caveat", cursive;
+    --banner-secundario: "Bangers", system-ui;
+}
+
+body {
+    background: var(--azul-oscuro-fondo);
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.contenedor {
+    width: 1440px;
+}
+
+.registro {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 80%;
+    height: 600px;
+    margin-top: 10px;
+}
+
+.vanished {
+    position: absolute;
+    left: 265px;
+    top: 30px;
+    opacity: 0.6;
+    z-index: -1;
+    width: 65%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.formulario {
+    width: 36%;
+    height: 100%;
+    background-color: var(--azul-medio);
+    border-radius: 90px;
+    opacity: 0.9;
+    margin-top: -20px;
+    margin-left: 96px;
+}
+
+.formulario h2 {
+    display: block;
+    color: ghostwhite;
+    text-align: center;
+    padding: 4px;
+    font-family: var(--titulos);
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.formulario input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 80%;
+    height: 35px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    border-radius: 90px;
+    background-color: whitesmoke;
+    padding-inline-start: 30px;
+    font-family: var(--parrafos);
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.formulario input[type="text"],
+input[type="password"]::placeholder {
+    color: black;
+    font-size: 16px;
+}
+
+.formulario label {
+    display: block;
+    text-align: left;
+    width: 75%;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-left: 12%;
+    font-family: var(--titulos);
+    color: azure;
+    font-size: 20px;
+}
+
+.contenedor_terminos {
+    display: flex;
+}
+
+.check_terminos {
+    display: block;
+    float: left;
+    width: 20px;
+    margin: 0px auto;
+    margin-left: 15%;
+    margin-top: 2px;
+    background-color: var(--azul-oscuro-fondo);
+    border-radius: 50%;
+}
+
+.texto_terminos {
+    margin: 0px auto !important;
+    width: 420px !important;
+}
+
+.boton {
+    padding: 0px !important;
+    margin-top: 12px;
+    margin-left: 19%;
+    background-color: var(--rojo-vibrante);
+    width: 60%;
+    height: 40px;
+    font-family: var(--titulos);
+    font-size: x-large !important;
+    color: azure;
+}
+
+.boton:hover {
+    border: 1px solid whitesmoke;
+    box-shadow: inset 1px 1px 1px 1px ghostwhite;
+    cursor: pointer;
+}
+
+.back {
+    display: flexbox;
+    padding: 0px !important;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: var(--rojo-vibrante);
+    width: 80px;
+    height: 30px;
+    font-family: var(--titulos);
+    font-size: medium !important;
+    color: azure;
+    opacity: 0.8;
+
+}
+
+.back:hover {
+    border: 1px solid whitesmoke;
+    box-shadow: inset 1px 1px 1px 1px ghostwhite;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .clearfix {
+        float: none;
+        clear: both;
+    }
+
+    .contenedor {
+        display: block;
+        float: inherit;
+        width: 400px;
+        height: 540px;
+    }
+
+    .registro {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 40px;
+    }
+
+    .vanished {
+        position: absolute;
+        left: 8px;
+        top: 10%;
+        z-index: -1;
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .formulario {
+        width: 80%;
+        height: 100%;
+        background-color: var(--azul-medio);
+        border-radius: 90px;
+        opacity: 0.9;
+        margin-left: 2%;
+    }
+
+    .formulario h2 {
+        display: block;
+        color: ghostwhite;
+        text-align: center;
+        padding: 4px;
+        font-family: var(--titulos);
+        font-size: 30px;
+        font-weight: bolder;
+        margin-top: 10px;
+    }
+
+    .formulario input[type="text"],
+    input[type="password"] {
+        display: block;
+        width: 80%;
+        height: 30px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-left: 10%;
+        border-radius: 90px;
+        background-color: whitesmoke;
+        padding-inline-start: 30px;
+        font-family: var(--parrafos);
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .formulario input[type="text"],
+    input[type="password"]::placeholder {
+        color: black;
+        font-size: 12px;
+    }
+
+    .formulario label {
+        display: block;
+        text-align: left;
+        width: 75%;
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-left: 12%;
+        font-family: var(--titulos);
+        color: azure;
+        font-size: 16px;
+    }
+
+    .contenedor_terminos {
+        display: flex;
+    }
+
+    .check_terminos {
+        display: block;
+        float: left;
+        width: 20px;
+        margin: 0px auto;
+        margin-left: 20%;
+        margin-top: 8px;
+        background-color: var(--azul-oscuro-fondo);
+        border-radius: 50%;
+    }
+
+    .texto_terminos {
+        width: 420px !important;
+        margin-left: -4px !important;
+    }
+
+    .boton {
+        padding: 0px !important;
+        margin-top: 12px;
+        margin-left: 22%;
+        background-color: var(--rojo-vibrante);
+        width: 55%;
+        height: 30px;
+        font-family: var(--titulos);
+        font-size: large !important;
+        color: azure;
+    }
+
+    .boton:hover {
+        border: 1px solid whitesmoke;
+        box-shadow: inset 1px 1px 1px 1px ghostwhite;
+        cursor: pointer;
+    }
+
+    .back {
+        display: flexbox;
+        padding: 0px !important;
+        margin-top: 20px;
+        margin-left: 20px;
+        background-color: var(--rojo-vibrante);
+        width: 80px;
+        height: 30px;
+        font-family: var(--titulos);
+        font-size: medium !important;
+        color: azure;
+        opacity: 0.8;
+
+    }
+}

@@ -1,0 +1,319 @@
+:root {
+    /* Colores */
+    --azul-oscuro-fondo: #1e1e24;
+    --azul-medio: #282830;
+    --rojo-vibrante: #ff6464;
+    /* Fuentes */
+    --parrafos: "Nixie One", system-ui;
+    --titulos: "PT Sans Narrow", sans-serif;
+    --banner-principal: "Caveat", cursive;
+    --banner-secundario: "Bangers", system-ui;
+}
+
+body {
+    background: var(--azul-oscuro-fondo);
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.contenedor {
+    width: 1440px;
+}
+
+.login {
+    width: 1100px;
+    height: 567px;
+    border-radius: 90px;
+    border: 2px solid gray;
+    margin-left: 15%;
+}
+
+.vanished {
+    position: relative;
+    position: fixed;
+    top: 1%;
+    margin-left: 8%;
+    width: 800px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.imagenes {
+    float: left;
+    margin-left: 4%;
+    margin-top: 3%;
+}
+
+.logo {
+    display: block;
+    width: 400px;
+    margin: 0px auto;
+    margin-left: 15%;
+}
+
+.hamburguesa2 {
+    display: block;
+    width: 110%;
+    margin: 0px auto;
+    margin-top: -50px;
+}
+
+.formulario {
+    display: block;
+    float: right;
+    width: 380px;
+    margin-right: 80px;
+    height: 500px;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: var(--azul-medio);
+    border-radius: 90px;
+}
+
+.formulario h2 {
+    display: block;
+    color: ghostwhite;
+    text-align: center;
+    padding: 4px;
+    font-family: var(--titulos);
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.formulario input[type="email"],
+input[type="password"] {
+    display: block;
+    width: 80%;
+    height: 35px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    border-radius: 90px;
+    background-color: whitesmoke;
+    padding-inline-start: 30px;
+    font-family: var(--parrafos);
+    font-size: 16px;
+    font-weight: bolder;
+    color: black;
+}
+
+.formulario input[type="text"],
+input[type="password"]::placeholder {
+    color: black;
+    font-size: 16px;
+}
+
+.formulario label {
+    display: block;
+    text-align: left;
+    width: 75%;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-left: 12%;
+    font-family: var(--titulos);
+    color: azure;
+    font-size: 20px;
+}
+
+.reset {
+    float: right;
+    margin-top: 10px;
+    font-family: var(--parrafos);
+    font-weight: bolder;
+    color: azure;
+    padding-right: 4px;
+    font-size: 14px;
+}
+
+.reset:hover {
+    color: var(--rojo-vibrante);
+    text-decoration: underline;
+}
+
+.ingresar {
+    padding: 0px !important;
+    margin-top: 60px;
+    background-color: var(--rojo-vibrante);
+    width: 76%;
+    height: 55px;
+    font-family: var(--titulos);
+    font-size: x-large !important;
+    color: azure;
+    margin-left: 12%;
+    cursor: pointer;
+}
+
+.ingresar:hover {
+    border: 1px solid whitesmoke;
+    box-shadow: inset 1px 1px 1px 1px ghostwhite
+}
+
+.registrate {
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 12px;
+    font-family: var(--parrafos);
+    font-weight: bolder;
+    font-size: 14px;
+    color: azure;
+    padding-right: 4px;
+}
+
+.registrate:hover {
+    color: var(--rojo-vibrante);
+    text-decoration: underline;
+}
+
+.back {
+    display: flexbox;
+    padding: 0px !important;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: var(--rojo-vibrante);
+    width: 80px;
+    height: 30px;
+    font-family: var(--titulos);
+    font-size: medium !important;
+    color: azure;
+    opacity: 0.8;
+
+}
+
+.back:hover {
+    border: 1px solid whitesmoke;
+    box-shadow: inset 1px 1px 1px 1px ghostwhite;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .clearfix {
+        float: none;
+        clear: both;
+    }
+
+    .contenedor {
+        width: 400px;
+        height: 540px;
+    }
+
+    .login {
+        display: grid;
+        width: 350px;
+        height: 567px;
+        border-radius: 90px;
+        border: 2px solid gray;
+        margin-left: 7%;
+        margin-top: 5%;
+    }
+
+    .vanished {
+        position: relative;
+        position: fixed;
+        top: 40px;
+        margin-left: 8px;
+        width: 380px;
+        opacity: 0.1;
+    }
+
+    .logo {
+        display: block;
+        width: 250px;
+        margin: 0px auto;
+    }
+
+    .hamburguesa2 {
+        display: block;
+        width: 60%;
+        margin: 0px auto;
+        margin-top: -20px;
+        margin-left: 60px;
+    }
+
+    .formulario {
+        width: 90%;
+        height: 340px;
+        padding: 20px;
+        background-color: var(--azul-medio);
+        border-radius: 90px;
+        margin-top: -50px;
+        margin-left: 18px;
+    }
+
+    .formulario h2 {
+        font-size: 30px;
+        font-weight: bolder;
+        margin-top: -10px;
+    }
+
+    .formulario input[type="text"],
+    input[type="password"] {
+        width: 80%;
+        height: 30px;
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-left: 10%;
+        border-radius: 90px;
+        background-color: whitesmoke;
+        padding-inline-start: 30px;
+        font-family: var(--parrafos);
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .formulario label {
+        display: block;
+        text-align: left;
+        width: 75%;
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-left: 12%;
+        font-family: var(--titulos);
+        color: azure;
+        font-size: 16px;
+    }
+
+    .formulario input[type="submit"] {
+        padding: 0px !important;
+        margin-top: 16px;
+        margin-left: 22%;
+        background-color: var(--rojo-vibrante);
+        width: 55%;
+        height: 30px;
+        font-family: var(--titulos);
+        font-size: large !important;
+        color: azure;
+    }
+
+    .reset {
+        margin-top: -2px;
+        font-size: 12px;
+    }
+
+    .ingresar {
+    margin-top: 10px !important;
+}
+
+    .registrate {
+        font-size: 12px;
+    }
+
+    .back {
+        display: flexbox;
+        padding: 0px !important;
+        margin-top: 20px;
+        margin-left: 20px;
+        background-color: var(--rojo-vibrante);
+        width: 80px;
+        height: 30px;
+        font-family: var(--titulos);
+        font-size: medium !important;
+        color: azure;
+        opacity: 0.8;
+    }
+
+}

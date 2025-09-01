@@ -1,0 +1,75 @@
+.contenedor{
+    width: fit-content;
+    background-color: var(--azul-medio);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.contenedorImagen{
+    width: 200px;
+    height: 144px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+}
+
+.imagen{
+    width: 200px;
+    position: absolute;
+    top: -30px;
+    left: 0;
+}
+
+.nombre{
+    font-family: var(--parrafos);
+    font-size: 14px;
+    color: white;
+}
+
+.precio{
+    font-family: var(--precios);
+    color: var(--rojo-vibrante);
+    font-size: 14px;
+}
+
+.boton{
+    background-color: var(--rojo-vibrante);
+    color: white;
+    font-family: var(--titulos);
+    border: none;
+    font-size: 14px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.boton:hover{
+    background-color: #fc4444;
+}
+
+@media (max-width: 768px) {
+    .contenedor{
+        align-items: center;
+        padding: 8px;
+    }
+    .contenedorImagen{
+        width: 130px;
+        height: 90px;
+    }
+    .imagen{
+        width:130px;
+        top: -20px;
+    }
+    .boton,
+    .nombre{
+        font-size: 10px;
+    }
+
+    .boton{
+        width: 100%;
+    }
+}

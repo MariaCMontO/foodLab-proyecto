@@ -1,0 +1,157 @@
+.container{
+    width: 100%;
+    background-color: var(--azul-oscuro-fondo);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.contenedorImagen{
+    width: 105px;
+    height: 75px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image{
+    width: 105px;
+    position: absolute;
+    top: -15px;
+    left: 0;
+}
+
+.contenedorRow{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.contenedorRowTotal{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.contenedorColumn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 7px;
+}
+
+.closeImagen{
+    width: 17px;
+    height: 17px;
+}
+
+.closeBoton{
+    border-radius: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.agregarBoton{
+    background-color: transparent;
+    border: 0.1px solid white;
+    border-radius: 5px;
+    font-family: var(--titulos);
+    font-size: 10px;
+    color: white;
+    width: fit-content;
+    padding-inline:5px;
+    padding-bottom:2px ;
+    cursor: pointer;
+}
+
+.nombre{
+    font-family: var(--parrafos);
+    color: white;
+    font-size: 12px;
+}
+
+.precio{
+    font-family: var(--precios);
+    color: var(--rojo-vibrante);
+    font-size: 10px;
+}
+
+.modificarBoton{
+    width: 60px;
+    height: 15px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--azul-claro);
+    border-radius: 15px;
+}
+
+.numero{
+    font-family: var(--parrafos);
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.botones{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.subtotal{
+    font-family: var(--titulos);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.subtotalGrande{
+    font-size: 14px;
+}
+
+.subtotal span{
+    color: var(--rojo-vibrante);   
+}
+
+.nota{
+    font-family: var(--parrafos);
+    color: white;
+    font-size: 10px;
+}
+
+.notaGrande{
+    font-family: var(--parrafos);
+    color: white;
+    font-size: 14px;
+}
+
+.editarBoton{
+    background-color: transparent;
+    border: none;
+    width: 15px;
+    cursor: pointer;
+}
+
+.editarImagen{
+    width: 15px;
+}
+
+.contenedorNota{
+    display: flex;
+}
+
+.hidden{
+    display: none;
+}
+
+.centrado{
+    width: fit-content;
+    padding: 10px;
+}
