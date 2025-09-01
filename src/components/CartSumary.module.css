@@ -1,0 +1,43 @@
+.contenedor {
+  background-color: var(--azul-oscuro-fondo);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contenedorFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.texto {
+  font-family: var(--parrafos);
+  color: white;
+  font-size: 14px;
+}
+
+.textoRojo {
+  font-family: var(--parrafos);
+  color: var(--rojo-vibrante);
+  font-size: 14px;
+}
+
+.boton {
+  width: 100%;
+  background-color: var(--rojo-vibrante);
+  color: white;
+  font-family: var(--titulos);
+  border: none;
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+hr {
+  border: 0;
+  border-top: 2px dashed #bbb;
+  margin: 1.5rem 0;
+}
