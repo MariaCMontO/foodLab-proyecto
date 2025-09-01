@@ -1,0 +1,238 @@
+.contenedor {
+  background-color: var(--azul-medio);
+  height: 100vh;
+  display: flex;
+  gap: 38px;
+  padding: 20px;
+  align-items: center;
+}
+.overlay {
+  background-color: black;
+  opacity: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.contenedorPrincipal {
+  background-color: var(--azul-oscuro-fondo);
+  border-radius: 40px;
+  padding: 35px;
+  height: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu {
+  display: none;
+}
+
+.logo {
+  width: 310px;
+  height: 70px;
+}
+
+.contenedorMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedorRegistro {
+  display: flex;
+  gap: 10px;
+  background-color: var(--azul-medio);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.nombre {
+  width: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.registrarTexto {
+  color: var(--rojo-vibrante);
+  writing-mode: vertical-lr; /* o vertical-lr */
+  font-weight: bold;
+  font-size: 18px;
+  transform: rotate(180deg);
+}
+.input {
+  font-family: var(--parrafos);
+  width: 100%;
+  border: none;
+  padding: 8px;
+  border-radius: 78px;
+}
+.inputDescripcion {
+  color: black;
+  font-family: var(--parrafos);
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 8px;
+  border-radius: 20px;
+  background-color: white;
+}
+.label {
+  font-family: var(--parrafos);
+  font-size: 16px;
+}
+.categorias {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+}
+.imagenBoton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.imagen,
+.descripcion {
+  width: 356px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  border-radius: 10px;
+}
+.imagen {
+  width: 100%;
+}
+.dropImage {
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+.imagenDropped {
+  width: 100px;
+}
+.botonIcon {
+  background-color: transparent;
+  border: none;
+}
+.boton {
+  width: 100%;
+  background-color: var(--rojo-vibrante);
+  color: white;
+  font-family: var(--titulos);
+  border: none;
+  font-size: 14px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.boton:hover {
+  background-color: #fc4444;
+}
+
+.tabla {
+  width: 100%;
+  height: 100%;
+  font-family: var(--parrafos);
+  font-size: 18px;
+}
+
+.scrollTabla {
+  background-color: var(--azul-medio);
+  padding: 15px;
+  border-radius: 15px;
+  height: 100%; /* ocupa todo el espacio disponible del contenedor */
+  max-height: calc(100vh); /* ajusta el 200px según tu header/logo */
+  overflow-y: auto; /* activa scroll vertical */
+  padding-right: 8px; /* espacio para que no tape el scroll */
+}
+
+.iconos {
+  border: none;
+  display: flex;
+  gap: 10px;
+}
+.icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+th {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.399);
+}
+.fila td {
+  height: 50px;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .contenedor {
+    gap: 0;
+  }
+  .nav {
+    position: absolute;
+    z-index: 10;
+    background-color: var(--azul-medio);
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 100px;
+    padding-right: 20px;
+  }
+  .contenedorPrincipal {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .menu {
+    display: block;
+    width: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .logo {
+    width: 240px;
+    height: 56px;
+  }
+  .visible {
+    transform: translateX(0);
+  }
+
+  .hidden {
+    transform: translateX(-100%);
+  }
+  .contenedorHistorial {
+    display: flex;
+    flex-direction: column;
+  }
+  .contenedorRegistro {
+    height:400px ;
+    width: 300px; /* ancho fijo */
+    white-space: nowrap; /* evita que los hijos hagan salto de línea */
+    overflow-x: auto; /* habilita el scroll horizontal */
+    overflow-y: hidden; /* oculta el scroll vertical */
+  }
+  .input{
+    padding: 5px;
+  }
+  .imagen{
+    width: 200px;
+  }
+}

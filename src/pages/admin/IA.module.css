@@ -1,0 +1,93 @@
+.cuadroPrincipal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.cuadroSecundario {
+    background: var(--azul-medio);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+.logo {
+    width: 200px;
+    margin-bottom: 1rem;
+}
+.cuadroSecundario h1 {
+    color: white;
+    margin-bottom: 1rem;
+}
+.cuadroPreguntas {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    gap: 16px; /* Espacio entre elementos */
+    flex-wrap: wrap; /* Opcional: permite que se acomoden si no hay espacio */
+    border: 1px solid #ccc;
+    text-align: left;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.pregunta {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+.inputUno {
+    background-color: white;
+    width: 28%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.inputDos {
+    background-color: white;
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cuadroRojo {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    color : tomato;
+    border: 1px solid #ccc;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+}
+
+.boton {
+    background-color: tomato;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
