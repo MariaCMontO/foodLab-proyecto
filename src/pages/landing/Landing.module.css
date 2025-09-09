@@ -16,6 +16,11 @@ body {
     font-family: 'PT Sans Narrow', sans-serif;
     background-color: #1e1e24;
     color: #f4f4fa;
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
 }
 
 /* Navegación */
@@ -90,8 +95,7 @@ body {
 /* Contenido principal */
 main {
     text-align: center;
-    padding: 0rem 0rem;
-    padding-top: 120px;
+    outline: 2px dashed red;
 }
 
 /* Contenedor del banner */
@@ -101,7 +105,7 @@ main {
     max-width: 700px;
     margin: 0rem auto;
     left: -2%;
-    bottom: 12rem;
+    bottom: 6rem;
 }
 
 /* Imagen del banner */
@@ -114,13 +118,13 @@ main {
 /* Texto superpuesto */
 .banner_texto {
     position: absolute;
-    top: 39.4%;
+    top: 62.5%;
     left: 50%;
     bottom: 5%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #cce7ff;
-    width: 200%;
+    width: 148%;
 }
 
 /* Estilos del texto */
@@ -162,17 +166,18 @@ main {
 }
 
 .seccionNosotros_imagen img {
-    width: 210%;
+    width: 214%;
     height: auto;
-    margin-left: -22.5rem;
+    margin-left: -24.5rem;
+    margin-top: -10%;
 }
 
 .seccionNosotros_texto {
     position: absolute;
-    left: 60%;
-    bottom: 99rem;
+    left: 25%;
+    top: 176%;
     transform: translate(-50%, -50%);
-    text-align: justify;
+    text-align: center;
     color: #ffffff;
     width: 200%;
 }
@@ -200,7 +205,7 @@ main {
     background: #1c1b22;
     padding: 2rem;
     gap: 1rem;
-    margin-top: 9rem;
+    margin-top: 8rem;
 }
 
 .container {
@@ -211,20 +216,31 @@ main {
 }
 
 .item {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s ease;
 }
+
 
 .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    border: 2px solid red;
 }
 
 .center {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
     transform: scale(1.04);
-    z-index: 3;
 }
 
 .arrowLeft,
@@ -244,9 +260,8 @@ main {
 }
 
 .fondo_contactanos img {
-    width: 210%;
-    height: auto;
-    margin-left: -22.5rem;
+    width: 214%;
+    margin-left: -24.5rem;
     opacity: 0.5;
 }
 
@@ -254,10 +269,10 @@ main {
     display: block;
     float: right;
     width: 450px;
-    margin-right: -300px;
+    margin-right: 10%;
     height: 510px;
-    padding: 20px;
-    margin-top: -700px;
+    padding: 30px;
+    margin-top: -840px;
     background-color: var(--azul-medio);
     border-radius: 90px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -357,8 +372,8 @@ input[type="text"] {
 
 .redes {
     position: absolute;
-    top: -10rem;
-    left: 111%;
+    top: -19rem;
+    left: 76%;
     transform: translateX(-50%);
     display: flex;
     gap: 1rem;
@@ -366,19 +381,21 @@ input[type="text"] {
 }
 
 .contactoInfo {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 4rem;
     text-align: center;
-
+    bottom: 51rem;
+    right: 20rem;
 }
 
 .contactoInfo img {
-    width: 80px;
+    position: relative;
+    width: 90px;
     height: auto;
     transition: transform 0.3s ease;
-    margin-left: -60rem;
+    right: 12rem;
 }
 
 .contactoInfo img:hover {
@@ -392,14 +409,17 @@ input[type="text"] {
     color: rgb(255, 255, 255);
     margin-bottom: 1rem;
     text-align: center;
-    margin-top: -49rem;
-    margin-left: -35rem;
 }
 
 .logo_pequeño {
-    width: 30%;
-    margin-left: -6rem;
-    margin-top: -14rem;
+    position: relative;
+    right: 20rem;
+    bottom: 54rem;
+}
+
+.logo_pequeño img {
+    width: 10% !important;
+    opacity: 0.8;
 }
 
 
@@ -409,8 +429,8 @@ input[type="text"] {
     font-size: 1.7rem;
     margin: 0;
     color: #ffffff;
-    right: 170px;
-    bottom: 60px;
+    left: 6rem;
+    bottom: 80px;
     text-align: justify;
 }
 
@@ -420,7 +440,7 @@ input[type="text"] {
     font-size: 1.7rem;
     margin: 0;
     color: #ffffff;
-    right: 300px;
+    right: 1.5rem;
     bottom: 60px;
 }
 
@@ -430,82 +450,14 @@ input[type="text"] {
     font-size: 1.7rem;
     margin: 0;
     color: #ffffff;
-    right: 250px;
+    left: 2rem;
     bottom: 60px;
 }
 
 .seccion_contactanos {
     background-color: rgba(30, 30, 36, 0.9);
-    /* fondo oscuro sin afectar opacidad global */
-    padding: 2rem;
+    padding: 0rem;
     border-radius: 20px;
     position: relative;
     z-index: 1;
-}
-
-@media (max-width: 768px) {
-    .navegacion {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    .navegacion_izquierda {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .navegacion_menu {
-        flex-direction: column;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .logo {
-        height: 80px;
-        max-width: 300px;
-    }
-
-    .banner_texto {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #cce7ff;
-        width: 200%;
-    }
-
-    .navegacion_boton_realizar_pedido {
-        margin: 1rem auto;
-        width: 80%;
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-    }
-
-    .banner {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .banner img {
-        margin-top: -5rem;
-    }
-
-    .banner_texto {
-        width: 100%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .login {
-        width: 80%;
-        margin: 1 rem auto;
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-    }
-
-
 }
