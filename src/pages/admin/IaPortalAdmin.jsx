@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
-import styles from "./iaPortal.module.css";
-import { navCliente } from "../../data/helpers";
+import styles from "./iaPortalAdmin.module.css";
+import { navAdmin, navCliente } from "../../data/helpers";
 import { useState } from "react";
 import { useHistorialContext } from "../../context/historialContext";
 import { useUsuariosContext } from "../../context/usuariosContext";
 import NavApp from "../../components/NavApp";
 
-export default function IaPortal() {
+export default function IaPortalAdmin() {
 
-  const {state:stateUsuario}= useUsuariosContext()
-    const {usuarioActivo: usuario}= stateUsuario
-    const nav = navCliente()
+    const nav = navAdmin
     const [showNav, setShowNav] = useState(false);
     const { state, dispatch } = useHistorialContext();
   return (

@@ -8,7 +8,6 @@ import { ProductosProvider } from "./context/productosContext.jsx";
 import { UsuariosProvider } from "./context/usuariosContext.jsx";
 
 createRoot(document.getElementById("root")).render(
- <StrictMode>
     <UsuariosProvider>
       <ProductosProvider>
         <HistorialProvider>
@@ -18,5 +17,4 @@ createRoot(document.getElementById("root")).render(
         </HistorialProvider>
       </ProductosProvider>
     </UsuariosProvider>
-  </StrictMode>
 );

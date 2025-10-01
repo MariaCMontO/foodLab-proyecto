@@ -4,13 +4,10 @@ import styles from "./OrdenesAdmin.module.css";
 import { useHistorialContext } from "../../context/historialContext";
 import HistorialDetail from "../../components/HistorialDetail";
 import { useLocation } from "react-router-dom";
+import { navAdmin } from "../../data/helpers";
 
 export default function OrdenesAdmin() {
-  const nav = [
-    { nombre: "Ordenes", imagen: "/menu_icon.svg", link: "/ordenesAdmin" },
-    { nombre: "Productos", imagen: "/historial_icon.svg", link: "/productosAdmin" },
-    { nombre: "Historial", imagen: "/perfil_icon.svg", link: "/historialAdmin" },
-  ];
+  const nav = navAdmin
 
   const [showNav, setShowNav] = useState(false);
   const { state, dispatch } = useHistorialContext();

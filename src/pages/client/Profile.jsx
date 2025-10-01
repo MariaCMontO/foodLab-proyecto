@@ -2,88 +2,43 @@ import { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
 import NavApp from "../../components/NavApp";
 import CategoryIcon from "../../components/CategoryIcon";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IaLoader from "./IaLoader";
 import { useUsuariosContext } from "../../context/usuariosContext";
+import { guardarUsuario } from "../../acciones/accionesUsuario";
+import { iconsI, navCliente } from "../../data/helpers";
 
 export default function Profile() {
   //Usuario registrado
-  const {state: stateUsuario, dispatch: dispatchUsuarios}= useUsuariosContext()
-  const {usuarioActivo: usuario}= stateUsuario
-  const [usuarioN, setUsuarioN] = useState(usuario);
-  //Loader de IA
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-
-  const handleNavigateIA = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      navigate("/iaPortal");
-    }, 1500);
-  };
-  const nav = [
-    {
-      nombre: "Menu",
-      imagen: "/menu_icon.svg",
-      link: "/cliente",
-      usuario: usuario,
-    },
-    {
-      nombre: "Historial",
-      imagen: "/historial_icon.svg",
-      link: "/historial",
-      usuario: usuario,
-    },
-    {
-      nombre: "Perfil",
-      imagen: "/perfil_icon.svg",
-      link: "/perfil",
-      usuario: usuario,
-    },
-    {
-      nombre: "IA",
-      imagen: "/ia_icon.png",
-      link: "/iaPortal",
-      custom: handleNavigateIA,
-    },
-  ];
-
-  const icons = [
-    { nombre: "Hamburguesas", imagen: "/icon_hamburguesa.svg" },
-    { nombre: "Perros", imagen: "/icon_hot_dog.png" },
-    { nombre: "Pizzas", imagen: "/icon_pizza.svg" },
-  ];
-  
-  const [usuarioEditado, setUsuarioEditado] = useState(usuarioN);
-  const [showNav, setShowNav] = useState(false);
-  const [category, setCategory] = useState(usuarioEditado.favorita);
-  const [edit, setEdit] = useState(false);
-
   const { state, dispatch } = useUsuariosContext();
-  
-  useEffect(() => {
-    const actualizado = state.usuarios.find((us) => us.id === usuario.id);
-    if (actualizado) setUsuarioN(actualizado);
-  }, [state.usuarios]);
+  const {usuarioActivo: usuario}= state
+  const nav = navCliente(usuario)
+  const icons = iconsI
+  const [usuarioEditado, setUsuarioEditado] = useState(usuario);
+  const [edit, setEdit] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+  const [category, setCategory] = useState(usuarioEditado.comidaFavorita);
 
+  //Cada que cambie el usuario, cambia el usuarioEditado
   useEffect(() => {
-    setUsuarioEditado(usuarioN);
-  }, [usuarioN]);
+    setUsuarioEditado(usuario);
+  }, [usuario]);
 
+  //Cada que cambia el usuario, se settea su categoria favorita en el state
   useEffect(() => {
-    setCategory(usuarioEditado.favorita);
-  }, [usuarioN]);
+    setCategory(usuarioEditado.comidaFavorita);
+  }, [usuario]);
 
+  //Cada que cambie un campo en el formulario...
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (["metodo", "numero", "nombreT", "cvv"].includes(name)) {
+    if (["metodo", "numero", "nombreTarjeta", "cvv"].includes(name)) {
       //Si el campo pertenece a pago
       setUsuarioEditado({
         ...usuarioEditado,
-        pago: {
-          ...usuarioEditado.pago,
+        metodoPago: {
+          ...usuarioEditado.metodoPago,
           [name]: value, // actualiza dentro de pago
         },
       });
@@ -94,18 +49,18 @@ export default function Profile() {
         [name]: value,
       });
     }
-    console.log(usuarioEditado);
   };
 
+  //Cuando se oprima el boton de guardar
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const usuarioCreado = {
-      ...usuarioEditado,
-    };
-
-    dispatch({ type: "Añadir usuario", payload: { usuario: usuarioCreado } });
+    guardarUsuario(dispatch, state, usuarioEditado)
   };
+
+  //Cuando se de click en cerrar sesion
+  const cerrarSesion =()=>{
+    dispatch({type: "Usuario activo",payload: { usuario: null }})
+  }
 
   return (
     <main className={styles.contenedor}>
@@ -123,7 +78,6 @@ export default function Profile() {
           <button className={styles.menu} onClick={() => setShowNav(!showNav)}>
             <img src="/menu_hamburguesa.svg" alt="" />
           </button>
-          <img className={styles.logo} src="/Logo.png" alt="" />
         </div>
         <div className={styles.informacion}>
           <img className={styles.profile} src="/avatar.jpg" alt="" />
@@ -139,7 +93,7 @@ export default function Profile() {
                     edit ? styles.ocultar : styles.mostrar
                   }`}
                 >
-                  {usuarioN.nombre}
+                  {usuario.nombre}
                 </p>
                 <input
                   className={`${styles.inputNumero} ${
@@ -161,7 +115,7 @@ export default function Profile() {
                     edit ? styles.ocultar : styles.mostrar
                   }`}
                 >
-                  {usuarioN.email}
+                  {usuario.email}
                 </p>
                 <input
                   className={`${styles.inputNumero} ${
@@ -183,7 +137,7 @@ export default function Profile() {
                     edit ? styles.ocultar : styles.mostrar
                   }`}
                 >
-                  {usuarioN.celular}
+                  {usuario.celular}
                 </p>
                 <input
                   className={`${styles.inputNumero} ${
@@ -205,7 +159,7 @@ export default function Profile() {
                     edit ? styles.ocultar : styles.mostrar
                   }`}
                 >
-                  {usuarioN.direccion}
+                  {usuario.direccion}
                 </p>
                 <input
                   className={`${styles.inputNumero} ${
@@ -220,7 +174,7 @@ export default function Profile() {
               </div>
             </div>
           </div>
-          <button className={styles.editar} onClick={() => setEdit(!edit)}>
+          <button className={styles.editar} type="button" onClick={() => setEdit(!edit)}>
             <img className={styles.editarIcon} src="/editar_icon.png" alt="" />
           </button>
         </div>
@@ -240,8 +194,8 @@ export default function Profile() {
                 onChange={handleChange}
                 value={usuarioEditado.ingredientes}
                 placeholder={
-                  usuarioN.ingredientes !== ""
-                    ? usuarioN.ingredientes
+                  usuario.ingredientes !== ""
+                    ? usuario.ingredientes
                     : "Ingresa tus ingredientes favoritos..."
                 }
               ></textarea>
@@ -256,8 +210,8 @@ export default function Profile() {
                 onChange={handleChange}
                 value={usuarioEditado.restricciones}
                 placeholder={
-                  usuarioN.restricciones !== ""
-                    ? usuarioN.restricciones
+                  usuario.restricciones !== ""
+                    ? usuario.restricciones
                     : "Ingresa tus restricciones..."
                 }
               ></textarea>
@@ -272,8 +226,8 @@ export default function Profile() {
                 onChange={handleChange}
                 value={usuarioEditado.expectativas}
                 placeholder={
-                  usuarioN.expectativas !== ""
-                    ? usuarioN.expectativas
+                  usuario.expectativas !== ""
+                    ? usuario.expectativas
                     : "Ingresa tus expectativas..."
                 }
               ></textarea>
@@ -290,7 +244,7 @@ export default function Profile() {
                     setCategory(categoria.nombre);
                     setUsuarioEditado({
                       ...usuarioEditado,
-                      favorita: categoria.nombre,
+                      comidaFavorita: categoria.nombre,
                     });
                   }}
                   selected={category === categoria.nombre}
@@ -311,11 +265,11 @@ export default function Profile() {
                 type="text"
                 name="metodo"
                 id="metodo"
-                value={usuarioEditado.pago.metodo}
+                value={usuarioEditado.metodoPago.metodo}
                 onChange={handleChange}
                 placeholder={
-                  usuarioN.pago.metodo !== ""
-                    ? usuarioN.pago.metodo
+                  usuario.metodoPago.metodo !== ""
+                    ? usuario.metodoPago.metodo
                     : "Ingresa tu metodo de pago"
                 }
               />
@@ -331,30 +285,30 @@ export default function Profile() {
                 type="text"
                 name="numero"
                 id="numero"
-                value={usuarioEditado.pago.numero}
+                value={usuarioEditado.metodoPago.numero}
                 onChange={handleChange}
                 placeholder={
-                  usuarioN.pago.numero !== ""
-                    ? usuarioN.pago.numero
+                  usuario.metodoPago.numero!==0
+                    ? usuario.metodoPago.numero
                     : "Ingresa tu numero de pago"
                 }
               />
             </div>
             <div className={styles.contenedorInput}>
-              <label className={styles.tituloGrande} htmlFor="nombre">
+              <label className={styles.tituloGrande} htmlFor="nombreTarjeta">
                 Nombre en tarjeta
               </label>
               <input
                 className={styles.inputNumero}
                 type="text"
-                name="nombreT"
-                id="nombre"
-                value={usuarioEditado.pago.nombreT}
+                name="nombreTarjeta"
+                id="nombreTarjeta"
+                value={usuarioEditado.metodoPago.nombreTarjeta}
                 onChange={handleChange}
                 placeholder={
-                  usuarioN.pago.nombreT !== ""
-                    ? usuarioN.pago.nombreT
-                    : "Ingresa tu nombre de titular del pago"
+                  usuario.metodoPago.nombreTarjeta !== ""
+                    ? usuario.metodoPago.nombreTarjeta
+                    : "Ingresa tu nombre de titular"
                 }
               />
             </div>
@@ -367,11 +321,11 @@ export default function Profile() {
                 type="text"
                 name="cvv"
                 id="cvv"
-                value={usuarioEditado.pago.cvv}
+                value={usuarioEditado.metodoPago.cvv}
                 onChange={handleChange}
                 placeholder={
-                  usuarioN.pago.cvv !== ""
-                    ? usuarioN.pago.cvv
+                  usuario.metodoPago.cvv!==0
+                    ? usuario.metodoPago.cvv
                     : "Ingresa tu CVV"
                 }
               />
@@ -383,11 +337,10 @@ export default function Profile() {
             GUARDAR
           </button>
           <Link to="/" className={styles.botonLink}>
-            <button className={styles.boton}>CERRAR SESION</button>
+            <button className={styles.boton} onClick={() => cerrarSesion}>CERRAR SESION</button>
           </Link>
         </div>
       </form>
-      {loading && <IaLoader />}
     </main>
   );
 }

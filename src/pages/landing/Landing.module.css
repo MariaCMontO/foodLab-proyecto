@@ -274,7 +274,7 @@ main {
 }
 
 .formulario input[type="text"],
-input[type="text"] {
+.formulario input[type="text"] {
     display: block;
     width: 80%;
     height: 35px;
