@@ -13,11 +13,11 @@ export const stateInicial = {
 
 //Definimos le reducer con state y action
 export const productosReducer = (state = stateInicial, action) => {
-  //Funcion que se ejecuta cada que se carga la pagina, llama los valores de productos del back y los settea en usuarios.
+  //Funcion que se ejecuta cada que se carga la pagina, llama los valores de productos del back y los settea en productos.
   if (action.type === "SET_PRODUCTOS") {
     return {
       ...state,
-      productos: action.payload, // se cargan los usuarios traídos de la API
+      productos: action.payload, // se cargan los productos traídos de la API
     };
   }
 

@@ -32,7 +32,7 @@ export default function HistorialAdmin() {
         <div className={styles.contenedorHistorial}>
           {state.historial
             .filter(
-              (orden) => orden.estado === "lista"
+              (orden) => orden.state === "lista"
             )
             .map((orden) => (
               <HistorialDetail key={orden.id} orden={orden} />

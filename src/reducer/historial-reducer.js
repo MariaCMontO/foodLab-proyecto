@@ -11,44 +11,27 @@ export const stateInicial = {
 
 //Creamos el reducer
 export const historialReducer = (state = stateInicial, action) => {
-  if (action.type === "Agregar al historial") {
-    const nuevaOrden = {
-      id:crypto.randomUUID().substring(0,5),
-      productos: action.payload.productos,
-      cliente: action.payload.cliente,
-      estado: "Confirmada",
-      fecha:new Date().toLocaleDateString()
-    };
-
-    const nuevoHistorial = [...state.historial, nuevaOrden];
-    
+  //Funcion que se ejecuta cada que se carga la pagina, llama los valores de ordenes del back y los settea en historial.
+  if (action.type === "SET_ORDENES") {
     return {
       ...state,
-      historial: nuevoHistorial,
+      historial: action.payload, // se cargan las ordenes traídos de la API
+    };
+  }
+  // Accion que agrega una orden al historial
+  if (action.type === "Agregar al historial") {
+    return {
+      ...state,
+      historial: action.payload.ordenes,
     };
   }
 
-  if(action.type==='Cambiar estado'){
-    const ordenNueva=state.historial.find((orden)=> orden.id===action.payload.orden.id)
-    console.log('Entro a cambiar estado')
-
-    let nuevoHistorial=[]
-
-    if(ordenNueva){
-      nuevoHistorial=state.historial.map((orden) => {
-        if(orden.id=== ordenNueva.id){
-          return {...orden, estado:action.payload.estado}
-        }else{
-          return {...orden}
-        }
-      })
-    }
-
-    console.log(nuevoHistorial)
+  // Accion que cambia el estado de una orden
+  if (action.type === "Cambiar estado") {
     return {
       ...state,
-      historial: nuevoHistorial
-    }
+      historial: action.payload.ordenes,
+    };
   }
 
   return state;

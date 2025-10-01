@@ -36,11 +36,12 @@ export default function Historial() {
         </div>
         <div className={styles.contenedorHistorial}>
           {state.historial
-          .filter((orden) => orden.cliente.id===usuario.id && orden.estado==='lista')
+          .filter((orden) => orden.user.id===usuario.id)
           .map((orden) => (
             <HistorialDetail
-            key={orden.id}
+            key={orden.idOrder}
             orden={orden}
+            ver={true}
             />
           ))}
         </div>

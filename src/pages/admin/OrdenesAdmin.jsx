@@ -52,7 +52,7 @@ export default function OrdenesAdmin() {
               })
               .map((orden) => (
                 <HistorialDetail
-                  key={orden.id}
+                  key={orden.idOrder}
                   orden={orden}
                   gestionar={true}
                 />

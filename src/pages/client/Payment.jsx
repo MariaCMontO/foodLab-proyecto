@@ -6,14 +6,13 @@ import CartDetail from "../../components/CartDetail";
 import CartSumary from "../../components/CartSumary";
 import { useEffect, useState } from "react";
 import { useUsuariosContext } from "../../context/usuariosContext";
+import { guardarOrden } from "../../acciones/accionesHistorial";
 
 export default function Payment() {
   const { state: stateCarrito, dispatch: carritoDispatch } =
     useCarritoContext();
   const { dispatch: historialDispatch } = useHistorialContext();
-
   const productos = stateCarrito.carrito;
-
   const location = useLocation();
   const { ia } = location.state;
   const navigate = useNavigate();
@@ -22,32 +21,22 @@ export default function Payment() {
   const { state: stateUsuario } = useUsuariosContext();
   const { usuarioActivo: usuario } = stateUsuario;
   const [usuarioN, setUsuarioN] = useState(usuario);
-  const [pago, setPago] = useState(usuarioN.pago);
-  const { state } = useUsuariosContext();
-  useEffect(() => {
-    const actualizado = state.usuarios.find((us) => us.id === usuario.id);
-    if (actualizado) setUsuarioN(actualizado);
-  }, [state.usuarios]);
-
-  useEffect(() => {
-    setPago(usuarioN.pago);
-  }, [usuarioN]);
 
   const handleChange = (e) => {
-    setPago({
-      ...pago,
-      [e.target.name]: e.target.value,
+    setUsuarioN({
+      ...usuarioN,
+      metodoPago: {
+        ...usuarioN.metodoPago,
+        [e.target.name]: e.target.value,
+      },
     });
+    console.log(usuarioN);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (stateCarrito.carrito.length >= 1 && !Object.values(pago).includes("")) {
-      console.log("Compra correcta");
-      historialDispatch({
-        type: "Agregar al historial",
-        payload: { productos, cliente: usuarioN },
-      });
+    e.preventDefault();
+    if (stateCarrito.carrito.length >= 1 && !Object.values(usuarioN.metodoPago).includes("")) {
+      guardarOrden(productos,usuarioN, historialDispatch)
       carritoDispatch({ type: "Vaciar carrito" });
       navigate("/cliente", { state: { usuario: usuarioN } });
     }
@@ -69,7 +58,7 @@ export default function Payment() {
             <CartDetail
               producto={producto}
               historial={true}
-              key={producto.id}
+              key={producto.idProducto}
             />
           ))}
         </div>
@@ -87,7 +76,7 @@ export default function Payment() {
               type="text"
               id="metodo"
               name="metodo"
-              value={pago.metodo}
+              value={usuarioN.metodoPago.metodo}
               onChange={handleChange}
             />
           </div>
@@ -97,9 +86,9 @@ export default function Payment() {
               <p className={Styles.texto}>Numero de tarjeta:</p>
               <input
                 className={Styles.input}
-                type="text"
+                type="number"
                 name="numero"
-                value={pago.numero}
+                value={usuarioN.metodoPago.numero}
                 onChange={handleChange}
               />
             </div>
@@ -108,8 +97,8 @@ export default function Payment() {
               <input
                 className={Styles.input}
                 type="text"
-                name="nombreT"
-                value={pago.nombreT}
+                name="nombreTarjeta"
+                value={usuarioN.metodoPago.nombreTarjeta}
                 onChange={handleChange}
               />
             </div>
@@ -117,9 +106,9 @@ export default function Payment() {
               <p className={Styles.texto}>CVV:</p>
               <input
                 className={Styles.input}
-                type="text"
+                type="number"
                 name="cvv"
-                value={pago.cvv}
+                value={usuarioN.metodoPago.cvv}
                 onChange={handleChange}
               />
             </div>

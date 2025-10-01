@@ -64,3 +64,10 @@
     border: none;
     border-radius: none;
 }
+
+.ver{
+    background-color: var(--rojo-vibrante);
+    color: white;
+    text-transform: uppercase;
+    padding: 5px;
+}
