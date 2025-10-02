@@ -21,10 +21,6 @@ export default function OrdenesAdmin() {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("historial", JSON.stringify(state.historial));
-  }, [state.historial]);
-
   return (
     <main className={styles.contenedor}>
       <div
@@ -48,7 +44,7 @@ export default function OrdenesAdmin() {
             {state.historial
               .filter((orden) => {
                 if (filter.length === 0) return true;
-                return filter.includes(orden.estado.toLowerCase());
+                return filter.includes(orden.state.toLowerCase());
               })
               .map((orden) => (
                 <HistorialDetail

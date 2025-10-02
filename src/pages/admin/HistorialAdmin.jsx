@@ -35,7 +35,7 @@ export default function HistorialAdmin() {
               (orden) => orden.state === "lista"
             )
             .map((orden) => (
-              <HistorialDetail key={orden.id} orden={orden} />
+              <HistorialDetail key={orden.idOrder} orden={orden} />
             ))}
         </div>
       </div>

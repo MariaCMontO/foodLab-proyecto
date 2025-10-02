@@ -3,6 +3,7 @@ import CartDetail from "./CartDetail";
 import { useHelpers } from "../hooks/useHelpers";
 import { useHistorialContext } from "../context/historialContext";
 import { cambiarEstado } from "../acciones/accionesHistorial";
+import CartDetailAdmin from "./CartDetailAdmin";
 
 export default function HistorialDetail({ orden, gestionar, ver }) {
   const { formatoCOP } = useHelpers();
@@ -22,11 +23,14 @@ export default function HistorialDetail({ orden, gestionar, ver }) {
       <div className={styles.contenedorRow}>
         <p className={styles.parrafos}>Cliente:</p>
         <p className={styles.parrafos}>{orden.user.nombre}</p>
+        <button type="button" className={styles.botonPdf}>
+          FACTURA
+        </button>
       </div>
       <div>
         <div className={styles.contenedorProductos}>
           {orden.products.map((producto, index) => (
-            <CartDetail
+            <CartDetailAdmin
               producto={producto}
               historial={true}
               key={producto.productoId || index}
@@ -37,7 +41,7 @@ export default function HistorialDetail({ orden, gestionar, ver }) {
       <div className={styles.contenedorFinal}>
         <div className={styles.contenedorRow}>
           <p className={styles.parrafos}>Fecha:</p>
-          <p className={styles.parrafos}>{orden.fecha}</p>
+          <p className={styles.parrafos}>{orden.date}</p>
         </div>
         <div className={styles.contenedorTotal}>
           <p className={styles.parrafosRojos}>Total:</p>

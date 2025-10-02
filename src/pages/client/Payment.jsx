@@ -7,6 +7,7 @@ import CartSumary from "../../components/CartSumary";
 import { useEffect, useState } from "react";
 import { useUsuariosContext } from "../../context/usuariosContext";
 import { guardarOrden } from "../../acciones/accionesHistorial";
+import CartDetailPayment from "../../components/CartDetailAdmin";
 
 export default function Payment() {
   const { state: stateCarrito, dispatch: carritoDispatch } =
