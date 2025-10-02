@@ -1,6 +1,7 @@
 import {
   actualizarOrden,
   añadirOrden,
+  generarPdf,
   ordenesData,
 } from "../peticiones/ordenes";
 
@@ -28,9 +29,21 @@ export const cambiarEstado = async (orden, estado, dispatch) => {
   try {
     actualizarOrden(orden, estado);
     const data = await ordenesData();
-    console.log(data)
+    console.log(data);
     dispatch({ type: "Cambiar estado", payload: { ordenes: data } });
   } catch (error) {
     console.log("Error actualizar ordenes: " + error);
+  }
+};
+
+export const mostrarPdf = async (orden) => {
+  try {
+    const fileURL = await generarPdf(orden);
+    const newWindow = window.open();
+    newWindow.document.write(
+      `<iframe src="${fileURL}" width="100%" height="100%" style="border:none;"></iframe>`
+    );
+  } catch (error) {
+    console.error("Error al generar PDF:", error);
   }
 };

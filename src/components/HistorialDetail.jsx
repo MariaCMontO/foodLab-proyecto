@@ -2,8 +2,9 @@ import styles from "./HistorialDetail.module.css";
 import CartDetail from "./CartDetail";
 import { useHelpers } from "../hooks/useHelpers";
 import { useHistorialContext } from "../context/historialContext";
-import { cambiarEstado } from "../acciones/accionesHistorial";
+import { cambiarEstado, mostrarPdf } from "../acciones/accionesHistorial";
 import CartDetailAdmin from "./CartDetailAdmin";
+import { generarPdf } from "../peticiones/ordenes";
 
 export default function HistorialDetail({ orden, gestionar, ver }) {
   const { formatoCOP } = useHelpers();
@@ -14,6 +15,10 @@ export default function HistorialDetail({ orden, gestionar, ver }) {
     cambiarEstado(orden, estado, dispatch);
   };
 
+  const mostrarFactura= async(orden)=>{
+    mostrarPdf(orden)
+  }
+
   return (
     <div className={styles.contenedor}>
       <div className={styles.contenedorRow}>
@@ -23,7 +28,7 @@ export default function HistorialDetail({ orden, gestionar, ver }) {
       <div className={styles.contenedorRow}>
         <p className={styles.parrafos}>Cliente:</p>
         <p className={styles.parrafos}>{orden.user.nombre}</p>
-        <button type="button" className={styles.botonPdf}>
+        <button type="button" className={styles.botonPdf} onClick={() => mostrarFactura(orden)}>
           FACTURA
         </button>
       </div>
