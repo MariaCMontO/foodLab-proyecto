@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useUsuariosContext } from "../../context/usuariosContext";
 import { guardarOrden } from "../../acciones/accionesHistorial";
 import CartDetailPayment from "../../components/CartDetailAdmin";
+import { guardarUsuario } from "../../acciones/accionesUsuario";
 
 export default function Payment() {
   const { state: stateCarrito, dispatch: carritoDispatch } =
@@ -17,11 +18,12 @@ export default function Payment() {
   const location = useLocation();
   const { ia } = location.state;
   const navigate = useNavigate();
-
+  
   //Usuario registrado
-  const { state: stateUsuario } = useUsuariosContext();
+  const { state: stateUsuario, dispatch: dispatchUsuarios } = useUsuariosContext();
   const { usuarioActivo: usuario } = stateUsuario;
   const [usuarioN, setUsuarioN] = useState(usuario);
+  useEffect(() => setUsuarioN(usuario), [usuario])
 
   const handleChange = (e) => {
     setUsuarioN({
@@ -31,13 +33,16 @@ export default function Payment() {
         [e.target.name]: e.target.value,
       },
     });
-    console.log(usuarioN);
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (stateCarrito.carrito.length >= 1 && !Object.values(usuarioN.metodoPago).includes("")) {
-      guardarOrden(productos,usuarioN, historialDispatch)
+      guardarUsuario(dispatchUsuarios, stateUsuario, usuarioN)
+      setTimeout(() => {
+        guardarOrden(productos, usuario, historialDispatch)
+      },1000)
       carritoDispatch({ type: "Vaciar carrito" });
       navigate("/cliente", { state: { usuario: usuarioN } });
     }
