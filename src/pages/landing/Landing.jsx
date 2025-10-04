@@ -3,12 +3,28 @@ import styles from "./Landing.module.css";
 import { useEffect, useState } from "react";
 import { usuarioData } from "../../peticiones/user";
 import { useUsuariosContext } from "../../context/usuariosContext";
+import { guardarMensaje } from "../../acciones/accionesMensaje";
 
 export default function Landing() {
   const images = ["/PT Sans.png", "/cocina.jpg", "/logoFoodlab.png"];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const { state, dispatch } = useUsuariosContext();
+  const [mensajeS, setMensaje] = useState({
+    email: "",
+    mensaje: "",
+  });
+
+  const handleChange = (e) => {
+    setMensaje({
+      ...mensajeS,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    guardarMensaje(mensajeS)
+  };
 
   const handleLeft = () => {
     setActiveIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
@@ -125,16 +141,31 @@ export default function Landing() {
           <section className={styles.seccion_contactanos}>
             <aside className={styles.formulario}>
               <h2>Envianos un mensaje</h2>
-              <form>
+              <form onSubmit={onSubmit}>
                 <label htmlFor="email">Email: </label>
-                <input type="text" placeholder="username@gmail.com" />
+                <input
+                  value={mensajeS.email}
+                  type="text"
+                  placeholder="username@gmail.com"
+                  name="email"
+                  id="email"
+                  onChange={handleChange}
+                />
 
                 <label htmlFor="mensaje" className={styles.mensaje}>
                   Mensaje:{" "}
                 </label>
-                <textarea id="mensaje" className={styles.textarea}></textarea>
+                <textarea
+                  value={mensajeS.mensaje}
+                  id="mensaje"
+                  className={styles.textarea}
+                  name="mensaje"
+                  onChange={handleChange}
+                ></textarea>
 
-                <input className={styles.enviar} type="submit" value="ENVIAR" />
+                <button className={styles.enviar} type="submit">
+                  ENVIAR
+                </button>
               </form>
             </aside>
             <div className={styles.redesWrapper}>
