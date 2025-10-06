@@ -14,7 +14,7 @@ export const carritoReducer = (state = stateInicial, action) => {
   if (action.type === "Añadir al carrito") {
     //Verificar si ya existe el producto en el carrito
     const indiceProducto = state.carrito.findIndex(
-      (producto) => producto.id === action.payload.producto.id
+      (producto) => producto.idProducto === action.payload.producto.idProducto
     );
 
     let copiaCarrito = [...state.carrito];
@@ -34,7 +34,7 @@ export const carritoReducer = (state = stateInicial, action) => {
     //Filtrar el producto del carrito
     const copiaCarrito = [...state.carrito];
     const nuevoCarrito = copiaCarrito.filter(
-      (producto) => producto.id !== action.payload.producto.id
+      (producto) => producto.idProducto !== action.payload.producto.idProducto
     );
 
     return {
@@ -46,14 +46,14 @@ export const carritoReducer = (state = stateInicial, action) => {
   if (action.type === "Añadir cantidad") {
     //Buscar el producto
     const producto = state.carrito.find(
-      (producto) => producto.id === action.payload.producto.id
+      (producto) => producto.idProducto === action.payload.producto.idProducto
     );
 
     let nuevoCarrito = [];
 
     if (producto) {
       nuevoCarrito = state.carrito.map((item) => {
-        if (item.id === action.payload.producto.id) {
+        if (item.idProducto === action.payload.producto.idProducto) {
           return { ...item, cantidad: item.cantidad + 1 };
         } else {
           return { ...item };
@@ -70,7 +70,7 @@ export const carritoReducer = (state = stateInicial, action) => {
   if (action.type === "Disminuir cantidad") {
     //Buscar el indice donde se encuentra el producto
     const producto = state.carrito.find(
-      (producto) => producto.id === action.payload.producto.id
+      (producto) => producto.idProducto === action.payload.producto.idProducto
     );
     
     let nuevoCarrito = [];
@@ -78,7 +78,7 @@ export const carritoReducer = (state = stateInicial, action) => {
     if (producto.cantidad === 1) {
         console.log("La cantidad es 0");
         nuevoCarrito = state.carrito.filter(
-            (producto) => producto.id != action.payload.producto.id
+            (producto) => producto.idProducto != action.payload.producto.idProducto
         );
         return {
             ...state,
@@ -86,10 +86,9 @@ export const carritoReducer = (state = stateInicial, action) => {
         };
     }
     
-
     if (producto) {
       nuevoCarrito = state.carrito.map((item) => {
-        if (item.id === action.payload.producto.id) {
+        if (item.idProducto === action.payload.producto.idProducto) {
           return { ...item, cantidad: item.cantidad - 1 };
         } else {
           return { ...item };
@@ -113,14 +112,14 @@ export const carritoReducer = (state = stateInicial, action) => {
   if(action.type=== 'Agregar nota'){
     //Buscar el indice donde se encuentra el producto
     const producto = state.carrito.find(
-      (producto) => producto.id === action.payload.producto.id
+      (producto) => producto.idProducto === action.payload.producto.idProducto
     );
 
     let nuevoCarrito = [];
 
     if (producto) {
       nuevoCarrito = state.carrito.map((item) => {
-        if (item.id === action.payload.producto.id) {
+        if (item.idProducto === action.payload.producto.idProducto) {
           return { ...item, nota: action.payload.nota };
         } else {
           return { ...item };

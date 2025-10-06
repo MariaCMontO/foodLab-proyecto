@@ -4,13 +4,10 @@ import styles from "./OrdenesAdmin.module.css";
 import { useHistorialContext } from "../../context/historialContext";
 import HistorialDetail from "../../components/HistorialDetail";
 import { useLocation } from "react-router-dom";
+import { navAdmin } from "../../data/helpers";
 
 export default function OrdenesAdmin() {
-  const nav = [
-    { nombre: "Ordenes", imagen: "/menu_icon.svg", link: "/ordenesAdmin" },
-    { nombre: "Productos", imagen: "/historial_icon.svg", link: "/productosAdmin" },
-    { nombre: "Historial", imagen: "/perfil_icon.svg", link: "/historialAdmin" },
-  ];
+  const nav = navAdmin
 
   const [showNav, setShowNav] = useState(false);
   const { state, dispatch } = useHistorialContext();
@@ -23,10 +20,6 @@ export default function OrdenesAdmin() {
       setFilter(filtro);
     }
   };
-
-  useEffect(() => {
-    localStorage.setItem("historial", JSON.stringify(state.historial));
-  }, [state.historial]);
 
   return (
     <main className={styles.contenedor}>
@@ -51,11 +44,11 @@ export default function OrdenesAdmin() {
             {state.historial
               .filter((orden) => {
                 if (filter.length === 0) return true;
-                return filter.includes(orden.estado.toLowerCase());
+                return filter.includes(orden.state.toLowerCase());
               })
               .map((orden) => (
                 <HistorialDetail
-                  key={orden.id}
+                  key={orden.idOrder}
                   orden={orden}
                   gestionar={true}
                 />

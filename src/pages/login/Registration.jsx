@@ -3,50 +3,52 @@ import styles from "./Registro.module.css";
 import { useState } from "react";
 import { useUsuariosContext } from "../../context/usuariosContext";
 import { v4 as uuid } from "uuid";
+import { guardarUsuario } from "../../acciones/accionesUsuario";
 
 export default function Registration() {
+
+    // Estructura de un usuario
     const usuarioVacio = {
         id: "",
         nombre: "",
         email: "",
-        contraseña: "",
+        contrasenia: "",
         celular: "",
         direccion: "",
         tipo: "",
         ingredientes: "",
         restricciones: "",
         expectativas: "",
-        favorita: "",
-        pago: {
+        comidaFavorita: "",
+        metodoPago: {
             metodo: "",
-            numero: "",
-            nombreT: "",
-            cvv: "",
+            numero: 0,
+            nombreTarjeta: "",
+            cvv: 0,
         },
     };
 
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState(usuarioVacio);
-    const { dispatch } = useUsuariosContext();
+    const {state, dispatch } = useUsuariosContext();
 
+    //Cada que cambie un campo del input
     const handleChange = (e) => {
-        console.log(usuario);
         setUsuario({
             ...usuario,
             [e.target.name]: e.target.value,
         });
     };
 
+    //Cuando se oprima el boton de submit
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const usuarioCreado = {
             ...usuario,
             id: uuid(),
             tipo: 'cliente'
         }
-
-        dispatch({ type: "Añadir usuario", payload: { usuario: usuarioCreado } });
+        guardarUsuario(dispatch,state, usuarioCreado)
         navigate("/login");
     };
 
@@ -84,12 +86,12 @@ export default function Registration() {
                             onChange={handleChange}
                         />
 
-                        <label htmlFor="contraseña">Contraseña: </label>
+                        <label htmlFor="contrasenia">Contraseña: </label>
                         <input
                             type="password"
                             placeholder="***********"
-                            name="contraseña"
-                            id="contraseña"
+                            name="contrasenia"
+                            id="contrasenia"
                             onChange={handleChange}
                         />
 

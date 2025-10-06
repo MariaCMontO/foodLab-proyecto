@@ -274,7 +274,7 @@ main {
 }
 
 .formulario input[type="text"],
-input[type="text"] {
+.formulario input[type="text"] {
     display: block;
     width: 80%;
     height: 35px;
@@ -322,6 +322,7 @@ input[type="text"] {
 }
 
 .textarea {
+    color: black;
     width: 90%;
     max-width: 600px;
     height: 200px;
@@ -329,6 +330,7 @@ input[type="text"] {
     border-radius: 20px;
     border: none;
     background-color: #eaeaea;
+    font-family: var(--parrafos);
     font-size: 1rem;
     resize: none;
     outline: none;
