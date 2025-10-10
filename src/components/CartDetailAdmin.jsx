@@ -2,18 +2,18 @@ import { useCarritoContext } from "../context/carritoContext";
 import { useHelpers } from "../hooks/useHelpers";
 import styles from "./CartDetail.module.css";
 
-export default function CartDetail({ producto, setNotaModal, historial }) {
+export default function CartDetailAdmin({ producto, setNotaModal, historial}) {
   const { formatoCOP } = useHelpers();
   const { dispatch } = useCarritoContext();
 
   return (
     <div className={styles.container}>
       <div className={styles.contenedorImagen}>
-        <img className={styles.image} src={producto.imagen} alt="" />
+        <img className={styles.image} src={producto.productos.imagen} alt="" />
       </div>
       <div className={styles.contenedorColumn}>
         <div className={styles.contenedorRow}>
-          <p className={styles.nombre}>{producto.nombre}</p>
+          <p className={styles.nombre}>{producto.productos.nombre}</p>
           <button
             onClick={() =>
               dispatch({ type: "Eliminar producto", payload: { producto } })
@@ -23,7 +23,7 @@ export default function CartDetail({ producto, setNotaModal, historial }) {
             <img className={styles.closeImagen} src="/close_icon.png" alt="" />
           </button>
         </div>
-        <p className={styles.precio}>{formatoCOP.format(producto.precio)}</p>
+        <p className={styles.precio}>{formatoCOP.format(producto.productos.precio)}</p>
         <div className={styles.contenedorRow}>
           <div className={`${styles.modificarBoton} ${historial&& styles.centrado}`}>
             <button
@@ -47,7 +47,7 @@ export default function CartDetail({ producto, setNotaModal, historial }) {
           <p className={`${styles.subtotal} ${historial&& styles.subtotalGrande}`}>
             Subtotal:
             <span>
-              {formatoCOP.format(producto.cantidad*producto.precio)}
+              {formatoCOP.format(producto.precioTotal)}
             </span>
           </p>
           {producto.nota != "" ? (

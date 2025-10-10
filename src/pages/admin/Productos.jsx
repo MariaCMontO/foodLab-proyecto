@@ -4,27 +4,13 @@ import styles from "./Productos.module.css";
 import CategoryIcon from "../../components/CategoryIcon";
 import { useHelpers } from "../../hooks/useHelpers";
 import { useProductosContext } from "../../context/productosContext";
+import { añadirProducto } from "../../peticiones/productos";
+import { eliminarProductoA, guardarProductos } from "../../acciones/accionesProductos";
+import { iconsI, navAdmin } from "../../data/helpers";
 
 export default function Productos() {
-  const nav = [
-    { nombre: "Ordenes", imagen: "/menu_icon.svg", link: "/ordenesAdmin" },
-    {
-      nombre: "Productos",
-      imagen: "/historial_icon.svg",
-      link: "/productosAdmin",
-    },
-    {
-      nombre: "Historial",
-      imagen: "/perfil_icon.svg",
-      link: "/historialAdmin",
-    },
-  ];
-
-  const icons = [
-    { nombre: "Hamburguesas", imagen: "/icon_hamburguesa.svg" },
-    { nombre: "Perros", imagen: "/icon_hot_dog.png" },
-    { nombre: "Pizzas", imagen: "/icon_pizza.svg" },
-  ];
+  const nav = navAdmin
+  const icons = iconsI
 
   const [showNav, setShowNav] = useState(false);
   const [category, setCategory] = useState();
@@ -34,7 +20,7 @@ export default function Productos() {
   const { state, dispatch } = useProductosContext();
 
   const [productoForm, setProductoForm] = useState({
-    id: 0,
+    idProducto: 0,
     categoria: "",
     nombre: "",
     descripcion: "",
@@ -54,18 +40,10 @@ export default function Productos() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!Object.values(productoForm).includes("")) {
-      const nuevoProducto = {
-        ...productoForm,
-      };
-      dispatch({
-        type: "Añadir producto",
-        payload: { producto: nuevoProducto },
-      });
-    } else {
-      console.log("Hay espacios vacios");
+      guardarProductos(dispatch, state, productoForm)
     }
     setProductoForm({
-      id: 0,
+      idProducto: 0,
       categoria: "",
       nombre: "",
       descripcion: "",
@@ -77,15 +55,12 @@ export default function Productos() {
   };
 
   const eliminarProducto = (producto) => {
-    dispatch({
-      type: "Eliminar producto",
-      payload: { producto },
-    });
+    eliminarProductoA(dispatch, producto)
   };
 
   const editarProducto = (producto) => {
     setProductoForm({
-      id: producto.id,
+      idProducto: producto.idProducto,
       categoria: producto.categoria,
       nombre: producto.nombre,
       descripcion: producto.descripcion,
@@ -147,16 +122,16 @@ export default function Productos() {
         <form className={styles.contenedorRegistro} onSubmit={handleSubmit}>
           <p className={styles.registrarTexto}>REGISTRAR PRODUCTO</p>
           <div className={styles.nombre}>
-            <label className={styles.label} htmlFor="id">
+            <label className={styles.label} htmlFor="idProducto">
               Id
             </label>
             <input
-              value={productoForm.id}
+              value={productoForm.idProducto}
               onChange={handleChange}
               className={styles.input}
-              type="number"
-              id="id"
-              name="id"
+              type="text"
+              id="idProducto"
+              name="idProducto"
             />
             <label className={styles.label} htmlFor="nombre">
               Nombre
@@ -265,8 +240,8 @@ export default function Productos() {
             </thead>
             <tbody>
               {state.productos.map((producto) => (
-                <tr key={producto.id} className={styles.fila}>
-                  <td>{producto.id}</td>
+                <tr key={producto.idProducto} className={styles.fila}>
+                  <td>{producto.idProducto}</td>
                   <td>{producto.nombre}</td>
                   <td>{formatoCOP.format(producto.precio)}</td>
                   <td>{producto.categoria}</td>

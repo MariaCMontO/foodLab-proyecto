@@ -13,46 +13,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useProductosContext } from "../../context/productosContext";
 import IaLoader from "./IaLoader";
 import { useUsuariosContext } from "../../context/usuariosContext";
+import { iconsI, navCliente } from "../../data/helpers";
 
 export default function AppClient() {
-
   //Usuario registrado
   const {state}= useUsuariosContext()
   const {usuario}=state
-
-  //Loader de IA
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-
-  const handleNavigateIA = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      navigate("/iaPortal");
-    }, 1500);
-  };
-
-  const nav = [
-    { nombre: "Menu", imagen: "/menu_icon.svg", link: "/cliente"},
-    { nombre: "Historial", imagen: "/historial_icon.svg", link: "/historial" },
-    { nombre: "Perfil", imagen: "/perfil_icon.svg", link: "/perfil" },
-    {
-      nombre: "IA",
-      imagen: "/ia_icon.png",
-      link: "/iaPortal",
-      custom: handleNavigateIA,
-    },
-  ];
-
-  const icons = [
-    { nombre: "Hamburguesas", imagen: "/icon_hamburguesa.svg" },
-    { nombre: "Perros", imagen: "/icon_hot_dog.png" },
-    { nombre: "Pizzas", imagen: "/icon_pizza.svg" },
-  ];
-
+  const icons = iconsI
+  const nav = navCliente()
   //Estados
   const { state: stateCarrito, dispatch } = useCarritoContext();
-  const { state: stateHistorial } = useHistorialContext();
   const [category, setCategory] = useState();
   const [showNav, setShowNav] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -83,7 +53,7 @@ export default function AppClient() {
             <div className={styles.categoria}>
               {icons.map((categoria) => (
                 <CategoryIcon
-                  key={categoria.imagen}
+                  key={categoria.nombre}
                   categoria={categoria}
                   setCategory={setCategory}
                   selected={category === categoria.nombre}
@@ -103,9 +73,9 @@ export default function AppClient() {
                 if (!category) return true;
                 return producto.categoria === category;
               })
-              .map((product) => (
+              .map((product, index) => (
                 <ProductDetail
-                  key={product.id}
+                  key={`${product.idProducto}-${index}`}
                   producto={product}
                   setModal={setModal}
                 />
@@ -140,9 +110,9 @@ export default function AppClient() {
             </button>
           </div>
           <div className={styles.carrito}>
-            {stateCarrito.carrito.map((producto) => (
+            {stateCarrito.carrito.map((producto, index) => (
               <CartDetail
-                key={producto.id}
+                key={`${producto.id}-${index}`}
                 producto={producto}
                 setNotaModal={setNotaModal}
                 notaModal={notaModal}
@@ -160,7 +130,6 @@ export default function AppClient() {
       {notaModal && (
         <NotaModal setNotaModal={setNotaModal} notaModal={notaModal} />
       )}
-      {loading && <IaLoader />}
     </main>
   );
 }

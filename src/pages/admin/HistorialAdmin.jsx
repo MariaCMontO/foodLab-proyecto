@@ -3,21 +3,10 @@ import NavApp from "../../components/NavApp";
 import styles from "./HistorialAdmin.module.css";
 import { useHistorialContext } from "../../context/historialContext";
 import HistorialDetail from "../../components/HistorialDetail";
+import { navAdmin } from "../../data/helpers";
 
 export default function HistorialAdmin() {
-  const nav = [
-    { nombre: "Ordenes", imagen: "/menu_icon.svg", link: "/ordenesAdmin" },
-    {
-      nombre: "Productos",
-      imagen: "/historial_icon.svg",
-      link: "/productosAdmin",
-    },
-    {
-      nombre: "Historial",
-      imagen: "/perfil_icon.svg",
-      link: "/historialAdmin",
-    },
-  ];
+  const nav = navAdmin
 
   const [showNav, setShowNav] = useState(false);
   const { state, dispatch } = useHistorialContext();
@@ -43,10 +32,10 @@ export default function HistorialAdmin() {
         <div className={styles.contenedorHistorial}>
           {state.historial
             .filter(
-              (orden) => orden.estado === "lista"
+              (orden) => orden.state === "lista"
             )
             .map((orden) => (
-              <HistorialDetail key={orden.id} orden={orden} />
+              <HistorialDetail key={orden.idOrder} orden={orden} />
             ))}
         </div>
       </div>

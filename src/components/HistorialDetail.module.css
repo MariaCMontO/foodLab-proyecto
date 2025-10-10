@@ -10,8 +10,9 @@
 
 .contenedorRow{
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     gap: 5px;
+    align-items: center;
 }
 
 .contenedorProductos{
@@ -63,4 +64,29 @@
     font-weight: bold;
     border: none;
     border-radius: none;
+}
+
+.ver{
+    background-color: var(--rojo-vibrante);
+    color: white;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.botonPdf{
+    background-color: var(--rojo-vibrante);
+    padding: 7px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    align-self: center;
+    justify-self: right;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.botonPdf:hover{
+    background-color: #fc4444;
 }

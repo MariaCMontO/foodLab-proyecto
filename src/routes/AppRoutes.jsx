@@ -11,6 +11,7 @@ import HistorialAdmin from "../pages/admin/HistorialAdmin";
 import Productos from "../pages/admin/Productos";
 import IaPortal from "../pages/client/IaPortal";
 import IaLoader from "../pages/client/IaLoader";
+import IaPortalAdmin from "../pages/admin/IaPortalAdmin";
 
 export default function AppRoutes() {
   return (
@@ -38,6 +39,9 @@ export default function AppRoutes() {
 
       {/* Clients IA*/}
       <Route path="/iaPortal" element={<IaPortal />} />
+
+      {/* Admin IA*/}
+      <Route path="/iaPortalAdmin" element={<IaPortalAdmin />} />
 
       {/* Ordenes Admin*/}
       <Route path="/ordenesAdmin" element={<OrdenesAdmin />} />
