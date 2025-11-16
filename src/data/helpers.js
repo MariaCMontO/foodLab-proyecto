@@ -18,12 +18,6 @@ export const navCliente = (usuario=null) => {
       link: "/perfil",
       usuario: usuario,
     },
-    {
-      nombre: "IA",
-      imagen: "/ia_icon.png",
-      link: "/iaPortal",
-      usuario: usuario,
-    },
   ]
 };
 
@@ -39,11 +33,6 @@ export const navAdmin = [
     imagen: "/perfil_icon.svg",
     link: "/historialAdmin",
   },
-  {
-      nombre: "IA",
-      imagen: "/ia_icon.png",
-      link: "/iaPortalAdmin",
-    },
 ];
 
 export const iconsI = [
