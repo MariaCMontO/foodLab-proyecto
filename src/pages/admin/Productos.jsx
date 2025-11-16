@@ -5,12 +5,15 @@ import CategoryIcon from "../../components/CategoryIcon";
 import { useHelpers } from "../../hooks/useHelpers";
 import { useProductosContext } from "../../context/productosContext";
 import { añadirProducto } from "../../peticiones/productos";
-import { eliminarProductoA, guardarProductos } from "../../acciones/accionesProductos";
+import {
+  eliminarProductoA,
+  guardarProductos,
+} from "../../acciones/accionesProductos";
 import { iconsI, navAdmin } from "../../data/helpers";
 
 export default function Productos() {
-  const nav = navAdmin
-  const icons = iconsI
+  const nav = navAdmin;
+  const icons = iconsI;
 
   const [showNav, setShowNav] = useState(false);
   const [category, setCategory] = useState();
@@ -40,7 +43,7 @@ export default function Productos() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!Object.values(productoForm).includes("")) {
-      guardarProductos(dispatch, state, productoForm)
+      guardarProductos(dispatch, state, productoForm);
     }
     setProductoForm({
       idProducto: 0,
@@ -55,7 +58,7 @@ export default function Productos() {
   };
 
   const eliminarProducto = (producto) => {
-    eliminarProductoA(dispatch, producto)
+    eliminarProductoA(dispatch, producto);
   };
 
   const editarProducto = (producto) => {
@@ -75,25 +78,26 @@ export default function Productos() {
   //Imagen que se arrastra al input
   const [image, setImage] = useState(null);
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    if (file) {
-      setImage(file);
-    }
-  };
-
   const handleFile = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-        setProductoForm({ ...productoForm, imagen: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const file = e.target.files[0];
+  if (file) {
+    // Suponiendo que las imágenes están en public/img/
+    const ruta = `/${file.name}`;
+    setImage(ruta); // para preview
+    setProductoForm({ ...productoForm, imagen: ruta }); // para enviar al backend
+  }
+};
+
+const handleDrop = (e) => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file) {
+    const ruta = `/${file.name}`;
+    setImage(ruta);
+    setProductoForm({ ...productoForm, imagen: ruta });
+  }
+};
+
 
   const fileInputRef = useRef(null);
 

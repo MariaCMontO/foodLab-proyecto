@@ -19,6 +19,7 @@ export default function HistorialDetail({ orden, gestionar, ver }) {
     mostrarPdf(orden)
   }
 
+  console.log(orden.products)
   return (
     <div className={styles.contenedor}>
       <div className={styles.contenedorRow}>
@@ -57,21 +58,21 @@ export default function HistorialDetail({ orden, gestionar, ver }) {
         <select
           onChange={selectChange}
           className={styles.select}
-          defaultValue={orden.state}
+          defaultValue={orden.status}
         >
-          <option className={styles.option} value="confirmada">
-            CONFIRMADA
+          <option className={styles.option} value="PENDIENTE">
+            PENDIENTE
           </option>
-          <option className={styles.option} value="en Preparacion">
+          <option className={styles.option} value="PREPARACION">
             EN PREPARACION
           </option>
-          <option className={styles.option} value="lista">
+          <option className={styles.option} value="LISTA">
             LISTA
           </option>
         </select>
       )}
       {ver &&(
-        <p className={styles.ver}>{orden.state}</p>
+        <p className={styles.ver}>{orden.status}</p>
       )}
     </div>
   );

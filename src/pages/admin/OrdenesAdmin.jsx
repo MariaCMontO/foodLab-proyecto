@@ -44,7 +44,7 @@ export default function OrdenesAdmin() {
             {state.historial
               .filter((orden) => {
                 if (filter.length === 0) return true;
-                return filter.includes(orden.state.toLowerCase());
+                return filter.includes(orden.status.toLowerCase());
               })
               .map((orden) => (
                 <HistorialDetail
@@ -58,17 +58,17 @@ export default function OrdenesAdmin() {
             <p className={styles.filtroTitulo}>Filtra las ordenes</p>
             <div
               className={`${styles.filtro} ${
-                filter === "confirmada" && styles.active
+                filter === "pendiente" && styles.active
               }`}
-              value="confirmada"
-              onClick={() => selectFilter("confirmada")}
+              value="pendiente"
+              onClick={() => selectFilter("pendiente")}
             >
               <img
                 className={styles.filtroImagen}
                 src="/confirmada.png"
                 alt=""
               />
-              <p className={styles.filtroContenido}>Confirmada</p>
+              <p className={styles.filtroContenido}>Pendiente</p>
             </div>
             <div
               className={`${styles.filtro} ${

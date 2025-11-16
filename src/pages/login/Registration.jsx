@@ -9,23 +9,12 @@ export default function Registration() {
 
     // Estructura de un usuario
     const usuarioVacio = {
-        id: "",
         nombre: "",
         email: "",
         contrasenia: "",
         celular: "",
         direccion: "",
-        tipo: "",
-        ingredientes: "",
-        restricciones: "",
-        expectativas: "",
-        comidaFavorita: "",
-        metodoPago: {
-            metodo: "",
-            numero: 0,
-            nombreTarjeta: "",
-            cvv: 0,
-        },
+        rol: "",
     };
 
     const navigate = useNavigate();
@@ -45,8 +34,7 @@ export default function Registration() {
         e.preventDefault();
         const usuarioCreado = {
             ...usuario,
-            id: uuid(),
-            tipo: 'cliente'
+            rol: 'CLIENTE'
         }
         guardarUsuario(dispatch,state, usuarioCreado)
         navigate("/login");

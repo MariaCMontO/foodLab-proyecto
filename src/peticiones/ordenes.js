@@ -1,32 +1,35 @@
+import api from "./axiosConfig";
 import axios from "axios";
 
-const urlBase = "http://localhost:8080/foodlab/ordenes";
+const urlBase = "/ordenes"; 
+const urlBase1="http://localhost:8080/api/foodlab/ordenes"
+
 
 //Obtener todos las ordenes
 export const ordenesData = async () => {
-  return (await axios.get(urlBase)).data;
+  return (await api.get(urlBase)).data;
 };
 
 //Obtener ordenes por usuario
 export const ordenesUsuario = async (usuario) => {
-  return (await axios.get(`${urlBase}/${usuario.id}`)).data;
+  return (await api.get(`${urlBase}/${usuario.id}`)).data;
 };
 
 //Añadir orden
 export const añadirOrden = async (orden) => {
-  return (await axios.post(urlBase, orden)).data;
+  return (await api.post(urlBase, orden)).data;
 };
 
 // Actualizar estado de la orden
 export const actualizarOrden = async (orden, estado) => {
-  return (await axios.patch(`${urlBase}/${orden.idOrder}?estado=${estado}`))
+  return (await api.patch(`${urlBase}/${orden.idOrder}?estado=${estado}`))
     .data;
 };
 
 //Generar PDF con receiptID
 export const generarPdf = async (orden) => {
   try {
-    const response = await axios.get(`${urlBase}/${orden.idOrder}/pdf`, {
+    const response = await api.get(`${urlBase}/${orden.idOrder}/pdf`, {
       responseType: "blob", // 👈 importante para recibir el PDF como binario
     });
 

@@ -28,16 +28,18 @@ export default function Login() {
     try{
     if (!Object.values(usuario).includes("")) {
       const usuarioExiste = await buscarPorEmailyContraseña(usuario);
-      if (usuarioExiste) {
-        if (usuarioExiste.tipo === "admin") {
+      localStorage.setItem("token", usuarioExiste.token);
+
+      if (usuarioExiste.usuario) {
+        if (usuarioExiste.usuario.rol === "ADMIN") {
           navigate("/ordenesAdmin", { state: { usuario: usuarioExiste }});
         }
-        if (usuarioExiste.tipo === "cliente") {
+        if (usuarioExiste.usuario.rol === "CLIENTE") {
           navigate("/cliente", { state: { usuario: usuarioExiste } });
         }
         dispatch({
             type: "Usuario activo",
-            payload: { usuario: usuarioExiste },
+            payload: { usuario: usuarioExiste.usuario },
           });
       }
     }
