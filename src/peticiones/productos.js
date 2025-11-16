@@ -1,23 +1,29 @@
-import axios from "axios"
+import api from "./axiosConfig";
 
-const urlBase= "http://localhost:8080/foodlab/productos"
+
+const urlBase= "/productos"
+
 
 //Obtener todos los productos
 export const productosData= async () => {
-    return (await axios.get(urlBase)).data
+    return (await api.get(urlBase)).data
 }
 
 //Añadir producto
 export const añadirProducto=async (producto) => {
-    return (await axios.post(urlBase, producto)).data
+    console.log(localStorage.getItem("token"))
+    console.log(producto)
+    return (await api.post(urlBase, producto)).data
 }
 
 //Editar producto
 export const editarProducto= async(producto) => {
-    return (await axios.put(`${urlBase}/${producto.idProducto}`,producto)).data
+    console.log(producto)
+    console.log(producto.idProducto)
+    return (await api.put(`${urlBase}/${producto.idProducto}`,producto)).data
 }
 
 // Eliminar producto
 export const eliminarProducto= async(producto) =>{
-    return (await axios.delete(`${urlBase}/${producto.idProducto}`)).data
+    return (await api.delete(`${urlBase}/${producto.idProducto}`)).data
 }

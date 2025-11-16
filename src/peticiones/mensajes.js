@@ -1,13 +1,13 @@
-import axios from "axios";
+import api from "./axiosConfig";
 
-const urlBase = "http://localhost:8080/api/mensajes";
+const urlBase = "/mensajes";
 
 // Obtener todos los mensajes
 export const obtenerMensaje = async () => {
-  return (await axios.get(urlBase)).data;
+  return (await api.get(urlBase)).data;
 };
 
 //Crear mensajes
 export const createMensaje = async (mensaje) => {
-  return (await axios.post(urlBase, mensaje)).data;
+  return (await api.post(urlBase, mensaje)).data;
 };

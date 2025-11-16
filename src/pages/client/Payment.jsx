@@ -75,14 +75,14 @@ export default function Payment() {
         <form className={Styles.form} onSubmit={handleSubmit}>
           <div className={Styles.cuartoCuadro}>
             <label htmlFor="metodo" className={Styles.texto}>
-              Metodo de pago
+              Tipo tarjeta
             </label>
             <input
               className={Styles.input}
               type="text"
               id="metodo"
-              name="metodo"
-              value={usuarioN.metodoPago.metodo}
+              name="tipoTarjeta"
+              value={usuarioN.metodoPago? usuarioN.metodoPago.tipoTarjeta:" " }
               onChange={handleChange}
             />
           </div>
@@ -93,18 +93,18 @@ export default function Payment() {
               <input
                 className={Styles.input}
                 type="number"
-                name="numero"
-                value={usuarioN.metodoPago.numero}
+                name="numeroTarjeta"
+                value={usuarioN.metodoPago? usuarioN.metodoPago.numeroTarjeta:" " }
                 onChange={handleChange}
               />
             </div>
             <div className={Styles.contenedor}>
-              <p className={Styles.texto}>Nombre de la tarjeta:</p>
+              <p className={Styles.texto}>Franquicia:</p>
               <input
                 className={Styles.input}
                 type="text"
-                name="nombreTarjeta"
-                value={usuarioN.metodoPago.nombreTarjeta}
+                name="franquicia"
+                value={usuarioN.metodoPago? usuarioN.metodoPago.franquicia:""}
                 onChange={handleChange}
               />
             </div>
@@ -114,7 +114,7 @@ export default function Payment() {
                 className={Styles.input}
                 type="number"
                 name="cvv"
-                value={usuarioN.metodoPago.cvv}
+                value={usuarioN.metodoPago? usuarioN.metodoPago.cvv : ""}
                 onChange={handleChange}
               />
             </div>

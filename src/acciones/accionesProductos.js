@@ -18,7 +18,14 @@ export const guardarProductos = async (dispatch, state, producto) => {
       // Si no lo añade
     } else {
       // Guarda en la base de datos
-      await añadirProducto(producto);
+      const productoN = {
+        categoria: producto.categoria,
+        nombre: producto.nombre,
+        descripcion: producto.descripcion,
+        precio: producto.precio,
+        imagen: producto.imagen,
+      };
+      await añadirProducto(productoN);
     }
     const data = await productosData();
     dispatch({ type: "Añadir producto", payload: { productos: data } });
@@ -31,9 +38,9 @@ export const eliminarProductoA = async (dispatch, producto) => {
   try {
     // Eliminar de la base de datos
     await eliminarProducto(producto);
-    const data=await productosData();
+    const data = await productosData();
     dispatch({ type: "Eliminar producto", payload: { productos: data } });
   } catch (error) {
-    console.log("Error al eliminar producto: "+ error)
+    console.log("Error al eliminar producto: " + error);
   }
 };

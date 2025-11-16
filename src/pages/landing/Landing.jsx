@@ -9,10 +9,11 @@ export default function Landing() {
   const images = ["/PT Sans.png", "/cocina.jpg", "/logoFoodlab.png"];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [mensajeS, setMensaje] = useState({
+  const initial={
     email: "",
     mensaje: "",
-  });
+  }
+  const [mensajeS, setMensaje] = useState(initial);
 
   const handleChange = (e) => {
     setMensaje({
@@ -24,6 +25,8 @@ export default function Landing() {
   const onSubmit = (e) => {
     e.preventDefault();
     guardarMensaje(mensajeS)
+    setMensaje(initial)
+
   };
 
   const handleLeft = () => {

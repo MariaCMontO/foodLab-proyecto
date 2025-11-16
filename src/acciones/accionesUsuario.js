@@ -1,18 +1,21 @@
-import { añadirUsuario, buscarPorCorreoConstraseña, editarUsuario, usuarioData } from "../peticiones/user";
+import {
+  añadirUsuario,
+  buscarPorCorreoConstraseña,
+  editarUsuario,
+  usuarioData,
+} from "../peticiones/user";
 
 export const guardarUsuario = async (dispatch, state, usuario) => {
-  console.log("Desde guardar usuarios: "+ usuario)
-    try {
-  // Busca si el usuario ya existe en el state de usuarios
-  const usuarioNuevo = state.usuarios.find((us) => us.id === usuario.id);
-  // Si el usuario nuevo no existe..
+  try {
+    // Busca si el usuario ya existe en el state de usuarios
+    const usuarioNuevo = state.usuarios.find((us) => us.id === usuario.id);
+    // Si el usuario nuevo no existe..
     if (!usuarioNuevo) {
       // Guardamos en la back
       await añadirUsuario(usuario);
       // Si el usuario ya existe...
     } else {
       // Guardamos la edicion de ese usuario en el back
-      console.log("Es un usuario existente")
       await editarUsuario(usuario);
     }
     //Traemos el arreglo del back
@@ -23,9 +26,15 @@ export const guardarUsuario = async (dispatch, state, usuario) => {
   }
 };
 
+
+
 export const buscarPorEmailyContraseña = async (usuario) => {
+  const usuarioC = {
+    email: usuario.email,
+    password: usuario.contraseña,
+  }
   try {
-    return await buscarPorCorreoConstraseña(usuario.email, usuario.contraseña);
+    return await buscarPorCorreoConstraseña(usuarioC);
   } catch (error) {
     console.error("Error al intentar loggear: ", error);
   }
