@@ -2,6 +2,7 @@ import api from "./axiosConfig";
 import axios from "axios";
 
 const urlBase = "/ordenes"; 
+const urlBaseR = "/receipts"; 
 const urlBase1="http://localhost:8080/api/foodlab/ordenes"
 
 
@@ -29,7 +30,7 @@ export const actualizarOrden = async (orden, estado) => {
 //Generar PDF con receiptID
 export const generarPdf = async (orden) => {
   try {
-    const response = await api.get(`${urlBase}/${orden.idOrder}/pdf`, {
+    const response = await api.get(`${urlBaseR}/${orden.factura.idReceipt}/pdf`, {
       responseType: "blob", // 👈 importante para recibir el PDF como binario
     });
 
