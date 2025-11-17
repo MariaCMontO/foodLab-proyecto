@@ -17,13 +17,13 @@ export default function CartSumary({ recibo, usuario }) {
         <p className={styles.texto}>{formatoCOP.format(total)}</p>
       </div>
       <div className={styles.contenedorFlex}>
-        <p className={styles.texto}>Propina(10%):</p>
-        <p className={styles.texto}>{formatoCOP.format(total * 0.1)}</p>
+        <p className={styles.texto}>Domicilio</p>
+        <p className={styles.texto}>{formatoCOP.format(5000)}</p>
       </div>
       {!recibo && <hr />}
       <div className={styles.contenedorFlex}>
         <p className={styles.textoRojo}>Total:</p>
-        <p className={styles.textoRojo}>{formatoCOP.format(total * 1.1)}</p>
+        <p className={styles.textoRojo}>{formatoCOP.format(total+5000)}</p>
       </div>
       {!recibo && (
         <Link to={stateCarrito.carrito.length>=1? "/pago":""} state={{ia:false}}>
